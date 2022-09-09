@@ -1,9 +1,9 @@
 ---
-slug: thingspanel-app
-title: ThingsPanel 发布物联网手机客户端（多图）
+slug: ThingsPanel APP
+title: ThingsPanel published moble app of IoT
 authors:
   name: zjhong
-  title: 极益科技
+  title: JiYi Tech
   url: https://github.com/zjhong
   image_url: https://avatars.githubusercontent.com/u/61645647?s=64&v=4
 tags:
