@@ -2,18 +2,18 @@
 sidebar_position: 1
 ---
 
-# 为什么选择ThingsPanel
+# Why ThingsPanel
 
-ThingsPanel是一个通用、开源的物联网应用平台，旨在通过可复用的组件，减少开发工作，简化和加速物联网开发交付。
+ThingsPanel is a general-purpose, open source IoT application platform designed to simplify and accelerate IoT development delivery by reducing development efforts through reusable components.
 
-**标准设备**是ThingsPanel最大的特点，通过标准设备，使物联网的复杂性大大降低。进一步降低成本、提高效率。同时也降低运维的难度与成本。
+**The standard device plug-in** is the biggest feature of ThingsPanel, which makes the IoT much less complex through standard devices.reduce costs and improve efficiency.Also reduce the difficulty and cost of operation and maintenance.
 
-## 系统优势
+## FEATURES
 
-- 设备上云与企业物联网+。
-- 开源、AGPLv3 。
-- 简洁、易用 。
-- 模块化构建，让项目交付更快。
+- Device and Enterprise IoT+.
+- Open Source, AGPLv3.
+- Simplicity and ease of use.
+- Modular architecture for faster project delivery.
 ## 针对用户
 - 快速交付项目
 - 快速开发自己的方案
