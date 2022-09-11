@@ -2,17 +2,17 @@
 sidebar_position: 4
 ---
 
-# 测试报告
+# Test Report
 
-单机性能:可达到5000设备同时接入，每分钟接入设备量为30万台。
+Solid performance: Can reach 5,000 devices at the same time, with 300,000 units per minute.
 
-**测试方法**
+**Test Method**
 
-- 鲲鹏通用计算增强型 || 4vCPUs | 8GiB
-- 5000个温湿度传感器，1秒上报一次消息
+- Super generic computing enhancement|| 4vCPUs | 8GB
+- 500 temperature sensors, 1 second message
 
-| 测试项目 | 单机性能     | 每分钟接入设备 |
-| ---- | -------- | ------- |
-| 后端服务 | 50000TPS | 300万设备  |
-| 消息接收 | 50000TPS | 300万设备  |
-| 数据库  | 5000TPS  | 30万设备   |
+| Test Project     | Mono Performance | Access device per minute |
+| ---------------- | ---------------- | ------------------------ |
+| Backend Service  | 5000 TPS         | 3 million devices        |
+| Message Received | 5000 TPS         | 3 million devices        |
+| Database         | 5000TPS          | 300,000 Devices          |
