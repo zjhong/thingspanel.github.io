@@ -2,14 +2,14 @@
 sidebar_position: 6
 ---
 
-# 系统截图
-ThingsPanel系统首页 ![ThingsPanel系统首页](/img/thingspanel-home.png)
+# System screenshot
+ThingsPanel Home ![ThingsPanel Home](/img/thingspanel-home.png)
 
-ThingsPanel业务管理 ![ThingsPanel业务管理](/img/thingspanel-application.png) ThingsPanel空气质量插件 ![ThingsPanel空气质量插件](/img/plugin-pm25.png)
-
-
-ThingsPanel-APP手机客户端登录页面 ![ThingsPanel-APP登录页](/img/thingspanel-app-login.webp)
+Things Panel's Management Management Operations ![ThingsPanel业务管理](/img/thingspanel-application.png) ThingsPanel's Air Quality Plugin ![ThingsPanel Air Quality Plugin](/img/plugin-pm25.png)
 
 
-ThingsPanel-APP手机客户端首页 ![ThingsPanel-APP](/img/thingspanel-app-home.webp)
+The ThingsPanel-APP mobile client login page ![ThingsPanel-APP login page](/img/thingspanel-app-login.webp)
+
+
+ThingsPanel-APP phone client homepage ![Things Panel-APP](/img/thingspanel-app-home.webp)
 
