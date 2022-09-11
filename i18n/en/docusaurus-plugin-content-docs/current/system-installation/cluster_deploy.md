@@ -2,6 +2,6 @@
 sidebar_position: 6
 ---
 
-# 集群部署
+# Cluster deployment
 
-![部署结构图](./../img/deploy.svg)
+![Deployment charts](./../img/deploy.svg)
