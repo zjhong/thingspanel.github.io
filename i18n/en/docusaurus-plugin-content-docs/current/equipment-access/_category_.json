@@ -1,8 +1,8 @@
 {
-    "label": "设备接入",
+    "label": "Device Access",
     "position": 4,
     "link": {
         "type": "generated-index",
-        "description": "设备接入"
+        "description": "Device Access"
     }
 }
