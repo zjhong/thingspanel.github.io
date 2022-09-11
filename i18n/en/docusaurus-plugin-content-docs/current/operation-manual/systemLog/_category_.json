@@ -1,8 +1,8 @@
 {
-    "label": "系统日志",
+    "label": "System Logs",
     "position": 13,
     "link": {
         "type": "generated-index",
-        "description": "系统日志"
+        "description": "System Logs"
     }
 }
