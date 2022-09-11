@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# 设备MQTT接入
+# Device MQTT access
 
-* MQTT设备可以直接接入到系统中。
-* MQTT设备如果是网关，那么需要通过规则引擎转化为标准设备再接入到系统中。
+* MQTT devices can be accessed directly into the system.
+* If MQTT equipment is a gateway, then it needs to be converted to standard equipment by a rule engine and then into the system.
