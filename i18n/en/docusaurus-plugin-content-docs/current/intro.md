@@ -17,13 +17,13 @@ ThingsPanel is a general-purpose, open source IoT application platform designed 
 ## For users
 - Quick Delivery Projects
 - Quickly develop your program
-- Device Internet +
+- Device IoT+
 ## Issue
-- The development of a slow and highly complex issue for the Internet of Objects project.
+- The development of a slow and highly complex issue for the Internet of Things project.
 ## Function Structure
 ![Function chart](./img/功能结构图.png)
 ## Stack
-* Golang：days of excellent parallel performance, saving hardware costs, can be applied to peripheral devices.
+* Golang：Excellent parallel performance and hardware cost savings.
 * Vue.js：frontend build, experience it
 * PostgreSQL：higher load capacity, lower ownership cost.
 * TimescaleDB ：time series database, PostgreSQL plugin.
