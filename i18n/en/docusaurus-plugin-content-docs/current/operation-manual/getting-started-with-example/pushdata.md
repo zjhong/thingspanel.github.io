@@ -2,16 +2,16 @@
 sidebar_position: 4
 ---
 
-# 推送数据
+# Push Data
 
-## 连接设备
+## Connect device
 
-将买到的设备连接起来，这个大概要花10分钟左右时间（具体连接方式咨询网关提供商）。
+Connect the purchased device and this takes about 10 minutes (contact gateways provider).
 
-![网关、温湿度采集器、声光报警器](../../img/rs485-gateway.jpg)
-## 在设备端的配置
-![](../../img/gateway-config.png) 要配置的重要项目有：**IP地址、端口、主题**。如果有验证的话，不要填错**用户名密码**。 在以上例子中，网关单独配置了推送主题。服务器端对该网关（金鸽）单独进行了解析。
+![Gateway, temperature humidity collector, sound alarm](../../img/rs485-gateway.jpg)
+## Configuration at the device end
+![](../../img/gateway-config.png) Important items to configure are：**IP addresses, ports, themes**如果有验证的话，不要填错**用户名密码**。 In the above example, the gateway has a separate push theme configured.The gateway (Golden Pigeons) is resolved separately by the server.
 
 
-## 通过MQTTBox查看网关设备推送的数据
-可以看到数据已经收到了。如下图温度282°（为设备直接发来的原始数据） ![查看网关收到的数据](../../img/mqttbox-view-data.png)
+## View gateway device push data via MQTTBox
+It can be seen that the data has been received.Temperature 282° below (raw data coming directly from the device) ![View gateway data received](../../img/mqttbox-view-data.png)
