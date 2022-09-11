@@ -2,13 +2,13 @@
 sidebar_position: 2
 ---
 
-# 准备工作
+# Preparatory work
 
-本次的例子需要准备好如下条件。
-- 安装好ThingsPanel并正常运行。
-- 准备一台工业网关（本次使用的是金鸽S475网关）
-- 一个485通信的温湿度传感器
-- 一个声光报警器
-- 网线一段或者物联网卡（本次使用网线连接路由器）
+This example needs to be prepared for the following conditions.
+- Install ThingsPanel and run it properly.
+- Prepare an industrial gateway (this time used by the Golden Pigeon S475)
+- A temperature-moisture sensor for 485 communications
+- A sound alarm
+- Network segment or property network card (this time using network connection router)
 
 
