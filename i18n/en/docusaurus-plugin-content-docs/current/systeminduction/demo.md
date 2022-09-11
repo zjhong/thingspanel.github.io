@@ -2,15 +2,15 @@
 sidebar_position: 5
 ---
 
-# 演示平台
+# Demo Platform
 
-电脑端使用网址，手机端扫码
+Website usage, mobile snippet
 
 http://dev.thingspanel.cn/
 
-电脑和手机端共用账号密码
+Computer and mobile account password shared
 
-- 用户名：admin@thingspanel.cn
-- 密码：123456
+- Username：admin@thingspanel.cn
+- Password：123456
 
-![查看手机端](./../img/Thingspanel-app.png)
+![View phone](./../img/Thingspanel-app.png)
