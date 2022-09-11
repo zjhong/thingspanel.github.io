@@ -2,128 +2,128 @@
 sidebar_position: 3
 ---
 
-# 功能介绍
+# Feature Introduction
 
-## 首页
+## Home
 
--   服务器状态信息，包括CPU和内存占用率，设备消息数。
+-   Server status information, including CPU and memory usage rates, number of device messages.
 
-## 业务
+## Operations
 
--   编辑创建业务，可创建多个业务，按照属性结构创建业务，无限级别分组。
+-   Edit to create a business, create more than one business, create a business according to an attribute structure, group at unlimited levels.
 
--   业务可绑定用户，实现针对业务的用户授权。
+-   Business can bind users to achieve user authorization for business.
 
-## 设备管理
+## Device management
 
--   按照分组添加管理设备。获得设备推送参数，进行数据对接。
+-   Add admin device by group.Get device push parameters for data interface.
 
--   查看设备推送状态，设备插件所带的图表组件，可根据分组、设备插件对设备进行快速筛选。
+-   View the device's push status, the graphical component with the device plugin. This allows you to quickly filter the device according to the grouping, device plugin.
 
--   具有设备向导功能，方便新手添加设备。
+-   Provides device wizard to add new devices.
 
--   可管理无限级分组。
+-   Unlimited groups can be managed.
 
-## 可视化
+## Visualizations
 
--   可创建多个可视化图表大屏。
+-   Multiple visualizer large screens can be created.
 
--   一个业务可创建不同分组的大屏包括汇总大屏。
+-   A business can create large screens for different groups including large screens.
 
--   自动读取设备插件所包含的图表单元并加载。
+-   Automatically read the tablet cells contained in the device plugin and load them.
 
--   可设置刷新率、采样率、时间间隔。
+-   You can set refresh rate, sample rate, interval.
 
--   支持各种图标单元、报表单元加载。
+-   Various icon modules, report modules are supported.
 
--   拖拽式布局
+-   Drag Layout
 
-## 自动化
+## Automation
 
--   可添加控制策略和告警策略
+-   Can add control policies and warning policies
 
--   支持控制策略优先级。
+-   Support control policy priorities.
 
--   支持多个控制策略或与条件
+-   Support multiple control strategies or conditions
 
--   支持时间和设备触发两种触发类型。
+-   Support time and device triggers two trigger types.
 
--   支持多个控制指令同时下发。
+-   Support multiple control commands to be issued simultaneously.
 
--   支持不同业务不同的策略。
+-   Support different strategies for different operations.
 
-## 数据管理
+## Data management
 
--   根据业务，根据时间段筛选数据。
+-   Based on operations, data are screened according to time periods.
 
--   实时查看收到的数据日志，方便监测数据是否已经收到。
+-   View incoming data logs in real time to facilitate monitoring of data arrival.
 
--   数据可以导出。
+-   Data can be exported.
 
-## 告警信息
+## Warning message
 
--   根据业务和分组显示告警信息。
+-   Display warning information based on business and group.
 
--   可根据时间段筛选。
+-   Can be filtered by time.
 
-## 系统日志
+## System Logs
 
--   查看不同的IP在系统中的访问路径，以便进行安全审计。
+-   View different IP access paths in the system to perform security audits.
 
--   查看设备被操作的任何记录，包括手动和自动，由什么条件触发。
+-   View any record of the device's operation, both manual and automatic, by what conditions trigger.
 
-## 应用管理
+## App management
 
--   对设备插件进行管理，设备插件是设备的影子设备，包括数据和协议定义，数据处理，设备输出的图表报表单元。
+-   Device plugins are managed as shadow devices for the device, including data and protocol definitions, data processing, graphical report units for equipment output.
 
-## 用户管理
+## User management
 
--   采用Casbin方案，支持ACL，RBAC多种权限管理方式，支持大型业务权限控制。
+-   The Casbin programme supports ACL and RBAC management approaches and controls on large business permissions.
 
--   支持到页面的权限控制。
+-   Permissions control supported to pages.
 
--   支持对业务进行分别的权限控制。
+-   Separate control of business is supported.
 
--   支持多角色定义，自定义角色权限。
+-   Support multi-role definition, custom role permissions.
 
-## 规则引擎
+## Rule Engine
 
--   将收到的数据转发第三方。
+-   Forward the data received to third parties.
 
--   接收设备数据并转换格式。
+-   Receive device data and convert the format.
 
-## 产品管理
+## Product Management
 
--   创建产品，设定产品编码，导出产品生产数据
+-   Create a product, set product code, export production data
 
--   导入产品，生成二维码
+-   Import products, generate QR code
 
--   在线升级固件OTA功能。
+-   Updates firmware OTA functionality online.
 
-## 系统设置
+## System Settings
 
--   更换Logo。
+-   Replace the logo.
 
--   更换系统标题。
+-   Change system title.
 
--   更换主题风格。
+-   Change theme style.
 
-## 物联网APP
+## Web Site APP
 
--   使用Uniapp开发，可以方便的编译成iOS，安卓，微信小程序以及其他小程序，H5。
+-   Developed using Uniapp, easily compiled into iOS, Android, micromessaging applet, and other applets, H5.
 
--   可以扫码添加设备（设备需要在后台先导入）。
+-   Can scan add devices (devices need to be imported first in background).
 
--   查看监测值。
+-   View monitoring values.
 
--   切换智能化业务和设备分组。
+-   Toggle smart business and device grouping.
 
--   手动控制。
+-   Manual control.
 
--   设置控制策略，分为设备触发和时间条件触发两种。
+-   Set control policy, split into device triggers and time conditions trigger.
 
--   查看操作日志。
+-   View operations log.
 
--   个人账号管理功能。
+-   Personal account management functionality.
 
--   手机验证码登录。
+-   Phone verification code login.
