@@ -2,6 +2,6 @@
 sidebar_position: 8
 ---
 
-# 视频组件
+# Video Component
 
-正在开发中，尚未发布
+Developing, not yet published
