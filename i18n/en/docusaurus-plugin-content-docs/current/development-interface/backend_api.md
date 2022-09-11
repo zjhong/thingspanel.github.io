@@ -2,8 +2,8 @@
 sidebar_position: 1
 ---
 
-# 后端接口
+# Backend interface
 
-此接口包含APP
+This interface contains APP
 
-https://www.apifox.cn/apidoc/shared-34b48097-8c3a-4ffe-907e-12ff3c669936/api-14711870
+https://apidoc/shared-34b48097-8c3a-4ffe-907e-12ff3c669936/api-14711870
