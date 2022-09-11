@@ -2,5 +2,5 @@
 sidebar_position: 3
 ---
 
-# 应用场景
-可支持各类数据采集与设备控制的应用场景，包括能源、电力、交通、矿山、社区、楼宇、园区、农业、气象、应急救灾等。
+# Apply Scene
+Applications supported for data collection and equipment control, including energy, electricity, transport, mines, communities, buildings, parks, agriculture, meteorology, emergency disaster response, etc.
