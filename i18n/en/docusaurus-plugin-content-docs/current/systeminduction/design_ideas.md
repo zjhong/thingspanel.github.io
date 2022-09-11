@@ -2,20 +2,20 @@
 sidebar_position: 1
 ---
 
-# 设计理念
+# Design concept
 
-## 设计思路
+## Idea
 
-- 用常识思维设计系统。
-- 用简单的办法解决复杂的问题。
-- 更高层次的抽象。
-- 用标准化组件简化系统
+- Design the system with common sense thinking.
+- Simple solutions to complex problems.
+- Higher abstraction.
+- Simplified system with standardized components
 
-## 标准设备
+## Standard Devices
 
-同样的一个温湿度传感器，可能有上千个厂家，不同的规格型号，但是他们都是<b>温湿度传感器</b>。
+The same temperature humidity sensor may have thousands of factories, different specification types, but they are all<b>temperature humidity sensors</b>
 
-温湿度传感器的输入是温度、湿度、时间。输出是当前温度、当前湿度、温度曲线、湿度曲线等图表单元或者报表。这些输入和输出的数量和彼此关系都是确定的。
+The input of the temperature and humidity sensor is temperature, humidity, time.Output is the current temperature, current humidity, temperature curve, humidity curve or statement.The quantity and relationship of these inputs and outputs are determined.
 
-因此，我们将温湿度传感器的软件部分也抽象成一个标准的温湿度传感器组件，这个组件包括了固定的数据输入和结果输出。并使之成为物联网大厦中的标准的砖块。
+Therefore, we also abstract the software component of the temperature humidity sensor as a standard temperature sensor component, which includes fixed data input and result output.and make it a standard brick in the Web Building.
 
