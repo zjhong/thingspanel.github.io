@@ -2,27 +2,27 @@
 sidebar_position: 1
 ---
 
-# 环境要求
+# Environmental requirements
 
-## 硬件设备要求
+## Hardware Devices Requirements
 
-**最低配置**
+**Minimum configuration**
 
-| CPU | 1核心 |
-| --- | --- |
-| 内存  | 1GB |
-| 硬盘  | 20G |
+| CPU        | 1 Core |
+| ---------- | ------ |
+| Memory     | 1GB    |
+| Hard Drive | 20G    |
 
-**推荐配置**
+**Recommended Configuration**
 
-| CPU | 2核+   |
-| --- | ----- |
-| 内存  | 4GB+  |
-| 硬盘  | 40GB+ |
+| CPU        | 2 nuclear + |
+| ---------- | ----------- |
+| Memory     | 4GB+        |
+| Hard Drive | 40GB+       |
 
-## 支持的平台
+## Supported Platforms
 
-ThingsPanel使用Golang开发，Golang支持的平台如下：
+The Golang, Golang-supported platform for ThingsPanel is set out below：
 
     aix/ppc64
     android/386
