@@ -2,6 +2,6 @@
 sidebar_position: 7
 ---
 
-# 系统架构
+# System architecture
 
-![系统架构图](./../img/systemflow.svg)
+![System Architecture](./../img/systemflow.svg)
