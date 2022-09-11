@@ -2,6 +2,6 @@
 sidebar_position: 8
 ---
 
-# 已对接的设备列表
+# List of connected devices
 
-* 金鸽网关 https://4g-iot.com/
+* Gold Pigeon Gateway https:///4g-iot.com/
