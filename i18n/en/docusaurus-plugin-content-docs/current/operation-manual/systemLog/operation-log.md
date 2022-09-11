@@ -2,8 +2,8 @@
 sidebar_position: 1
 ---
 
-# 操作日志
+# Operation Log
 
-记录登录到系统的人员对系统的操作，以供安全审计。
+Log the system operations of the person logged into the system for security audits.
 
-![登录到系统的人员对系统进行的操作](../../img/operation_log.png)
+![Actions made by people logged into the system](../../img/operation_log.png)
