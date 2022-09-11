@@ -2,12 +2,12 @@
 sidebar_position: 1
 ---
 
-# 温湿度采集并报警
+# Warm moisture Gathering and Alarm
 
 这个例子我们将实现如下几点：
-- 配置工业网关通过RS485采集Modbus温湿度数据、并连接声光报警器。
-- 将数据推送到ThingsPanel的MQTT网关。
-- 添加设备并获得数据
-- 添加配置可视化
-- 手动控制声光报警器报警。
-- 配置温度超过30°告警。
+- Configure the industrial gateway to collect modbus humidity data via RS485 and connect to the sound alarm system.
+- Push data to the MQTT gateway for ThingsPanel.
+- Add device and get data
+- Add Configuration Visualization
+- Manual control of sound alarm alerts.
+- Configure temperature exceeding 30°.
