@@ -2,6 +2,6 @@
 sidebar_position: 5
 ---
 
-# TCP接入
+# TCP Access
 
-TCP设备可以直接接入到系统中。
+TCP devices can be accessed directly into the system.
