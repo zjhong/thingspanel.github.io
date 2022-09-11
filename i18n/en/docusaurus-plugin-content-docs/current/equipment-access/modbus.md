@@ -2,8 +2,8 @@
 sidebar_position: 4
 ---
 
-# ModBus接入
+# ModBus Access
 
-* 使用ThingsPanel规则引擎接入，并转化成标准设备接入。
-* 使用ThingsBoard网关或者其他软件网关接入。
-* 使用硬件网关接入，并转为MQTT接入到ThingsPanel
+* Use the ThingsPanel rule engine to access and convert it into standard equipment access.
+* Access via ThingsBoard gateway or other software gateway.
+* Use hardware gateway to connect to ThingsPanel
