@@ -2,31 +2,31 @@
 sidebar_position: 9
 ---
 
-# 更新记录
+# Update Records
 
-## ThingsPanel-Ver0.2.0
+## Things Panel-Ver0.2.0
 
-### 本次新增功能
-- 增加了系统设置主菜单，支持更换系统上所有logo和系统名称
-- 增加了设备属性功能，可以填入设备位置，以便在业务可视化中给设备定位
-- 优化了tcp协议，增加了设备重置api接口
-- 增加了外部扩展接口：根据设备id查询设备历史数据
-- 增加了外部扩展接口：提供输入设备数据和图片的接口
-- 数据管理中增加了图片预览功能，修复了时间不显示缺陷
-- 增加了外部扩展接口：根据业务id查询业务下所有设备和设备当前值
-- 增加了外部扩展接口：根据设备id查询设备当前值
-- 增加了数据导出到excel功能
-- 后台增加了日志模块，可在app.conf配置文件中配置拆分行数，8个日志级别，日志保存时间；sql日志记录在info级别
-- 告警信息支持业务id，资产id，设备id检索
-- 增加了动态加载logo，更换了加载风格
-### 本次优化和修复的缺陷
-- 修复了自动化预警“或”关联事件引起服务宕机问题
-- 优化了可视化中切换资产出现的无法切换问题，并优化了切换加载速度
-- 优化了登录页加载时间长的问题
-- 优化了应用管理中图表字段换行会使盒子变高的问题
-- 修复了温湿度可视化插件曲线图无法加载的缺陷
-- 对所有插件的标题和布局进行了优化
-- 优化了前端打包部署部分的配置，与docker一键部署形成了配合
-- 优化了docker版本，支持在docker版本上更新前后端代码、前端代码和nginx配置
-- 优化了数据管理的检索功能，修复了部分bug，增强了用户体验；
-- 优化了业务中的编辑业务，降低了显示延迟；修改了部分名称
+### New feature
+- System settings main menu has been added to support the replacement of all logo and system names on the system
+- Device properties have been added and can be filled to position in order to position the device in business visualization
+- The tcp protocol was optimized and the device reset api interface added
+- Added external extension interface：query device history based on device id
+- Added external extension interface：provides interface for input device data and pictures
+- Image preview added in data management, fixes time defaults
+- Added external extension interface：for all devices and devices based on business ids.
+- Added external extension interface：query device current value based on device id
+- Added data export to excel.
+- Log module added to the background to configure split lines in app.conf configuration file, 8 log levels, log saving time; sql log at info.
+- Warning information supports business ids, asset ids, equipment ids.
+- Added a dynamic loading logo, changed the loading style
+### This optimized and repaired bugs
+- Fix service delay problems caused by automated early warning “or” associated events
+- Optimized to toggle assets in visualization and optimized toggle load speed
+- Optimized login page loading issues
+- Optimize the question of changing chart fields in the app management
+- Fixed defects that the temperature humidity visualization plugin map cannot be loaded
+- Optimized titles and layout for all plugins
+- Optimize the configuration of the front-end pack deployment component with docker key deployment
+- Optimize docker version, support updating of preend, front-end and nginx configuration on docker version
+- Optimized data management retrieval features, repaired some bugs and enhanced user experience;
+- Optimize editing in business and decrease display delay; partially name changed
