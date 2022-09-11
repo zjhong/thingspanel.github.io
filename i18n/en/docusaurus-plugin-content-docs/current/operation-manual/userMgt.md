@@ -2,20 +2,20 @@
 sidebar_position: 12
 ---
 
-# 用户管理
+# User management
 
-## 添加角色
-![添加角色](/img/addRole.png)
+## Add Role
+![Add Role](/img/addRole.png)
 
 
-## 为每个角色选择权限
-![为角色选择权限](/img/userRole.png)
+## Select permissions for each role
+![Select permissions for roles](/img/userRole.png)
 
-## 添加用户，为用户设定角色
+## Add User to Set Role for User
 
-![添加用户](/img/addUserForm.png)
+![Add User](/img/addUserForm.png)
 
-## 用户列表
+## User List
 
-![用户列表](/img/userList.png)
+![User List](/img/userList.png)
 
