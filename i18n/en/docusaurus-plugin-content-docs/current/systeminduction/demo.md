@@ -4,13 +4,13 @@ sidebar_position: 5
 
 # Demo Platform
 
-Website usage, mobile snippet
+Website URL
 
 http://dev.thingspanel.cn/
 
-Computer and mobile account password shared
+Username and Password
 
 - Username：admin@thingspanel.cn
 - Password：123456
 
-![View phone](./../img/Thingspanel-app.png)
+![View mobile](./../img/Thingspanel-app.png)
