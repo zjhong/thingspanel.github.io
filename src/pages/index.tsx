@@ -18,7 +18,7 @@ function HomepageHeader() {
         <p className="hero__subtitle"><Translate
                   id="home.visitMyBlog"
                   description="dicte">
-                  物联网应用支撑平台
+                  ThingsPanel是一款轻量级、组件化的开源物联网应用支撑平台
                 </Translate></p>
         <div className={styles.buttons}>
           <span>

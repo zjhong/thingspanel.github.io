@@ -31,7 +31,7 @@ const FeatureList: FeatureItem[] = [
       <Translate
           id="OpenSource.one"
           description="副标题">
-          AGPLv3开源协议，100%开源
+          AGPLv3开源协议
       </Translate>
       </>
     ),
