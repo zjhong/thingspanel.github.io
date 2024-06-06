@@ -4,11 +4,11 @@ sidebar_position: 9
 
 # 更新记录
 
-## ThingsPanel0.6.0更新日志
+## ThingsPanel1.0.0更新日志
 
 
 
-ThingsPanel0.6是一个全新的版本，易用性有进一步的提升，有如下几个重大更新：
+ThingsPanel1.0.0是一个全新的版本，易用性有进一步的提升，有如下几个重大更新：
 ### 整体更新
 - 基于 Gin和Vue.js3.0、TypeScript重构
 - 更换界面风格，支持多种样式，多种菜单布局。

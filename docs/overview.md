@@ -4,7 +4,8 @@ sidebar_position: 1
 
 # 为什么选择ThingsPanel 
 
-ThingsPanel是一个通用、开源的物联网应用平台，旨在通过可复用的插件，减少开发工作，加速物联网项目构建。
+ThingsPanel是一款轻量级、组件化的开源物联网应用支撑平台，旨在通过可复用的插件，减少开发工作，加速物联网项目构建。
+
 
 
 ThingsPanel的插件主要有如下几类，分别是：
