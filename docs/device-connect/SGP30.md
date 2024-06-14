@@ -9,8 +9,8 @@ sidebar_position: 15
 设计用于智能家居、家电和物联网应用，它提供两个经过校准的空气质量信号和湿度补偿功能.SGP30
 可提供有关空气质量的更详尽指数。针对现实生活环境中的污染气体，该传感器具有无与伦比的可靠性，可以实现独一无的长期稳定性和低漂移
 - SGP30是一款二氧化碳（CO2）和有机化合物（TVOC）气体传感器模块，它可以通过检测环境中的CO2和TVOC浓度来实现空气质量监测和控制。
-![descript](./images/image14.png)
-![descript](./images/image15.png)
+![descript](./image/image14.png)
+![descript](./image/image15.png)
 
 
 ## 2、接入步骤
@@ -32,7 +32,7 @@ sidebar_position: 15
 - NodeMCU开发板默认的SDA和SCL引脚是D2（GPIO4）和D1（GPIO5）。
 - 注意代码也要修改：
 
-![descript](./images/image16.png)
+![descript](./image/image16.png)
 
 ## 4、安装Arduino IDE
 - 首先，确保你已经安装了必要的库。你可以使用Arduino
@@ -41,11 +41,11 @@ IDE的库管理器来安装。你可能需要以下库：
 2\. Adafruit Unified Sensor Library
 3\. Pubsubclient
 4\. ArduinoJson
-![descript](./images/image17.png)
+![descript](./image/image17.png)
 
 ## 5、在ThingsPanel平台中创建设备
 - 创建设备时需要选择**SGP30气体传感器插件。**
-![descript](./images/image18.png)
+![descript](./image/image18.png)
 
 ##  6、在Arduino IDE中刷写代码
 - 需要修改Wi-Fi热点名、密码、MQTT用户名。
