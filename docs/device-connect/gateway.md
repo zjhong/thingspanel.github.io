@@ -4,81 +4,48 @@ sidebar_position: 2
 
 # MQTT网关设备接入
 
-## 通过规则引擎接入
+## 1、接入步骤
+1.  创建设备功能模板(可选)
+2.  创建MQTT网关设备配置模板
+3.  创建MQTT网关子设备配置模板
+4.  创建网关设备
+5.  创建网关子设备
+6.  在已创建的网关设备里，关联网关子设备并配置子设备地址
+7.  根据网关设备里的**连接**页信息配置网关设备的凭证信息，根据
+> 【腾讯文档】ThingsPanel_MQTT_网关设备接入规范[ThingsPanel_MQTT_网关设备接入规范](https://docs.qq.com/doc/DZXlnb25scnZRc1dK)配置主题等
+8.  开启设备
+9.  查看设备数据
 
-使用ThingsPanel规则引擎转化成标准设备接入。
+## 2、操作
 
-## 直连接入
+### 2.1、创建功能模版（可选）
 
-### 网关设备MQTT接入方式
+- 进入ThinsPanel系统，点击设备辑入-功能模版，创建功能模版，并针对遥测、属性、事件、命令等配置名称和标识符的映射关系。
+![descript](./images/image19.png)
 
-| 接入类型 | 认证 | 接入地址 | MQTT安全认证 |
-| ----- | --- | -------- | ---- |
-|网关 MQTT | AccessToken接入认证 | mqtt://服务IP:1883| 用户名：AccessToken 密码：空 |
-|网关 MQTT | MQTT Basic认证 | mqtt://服务IP:1883| 用户名：必填 密码：必填 |
+### 2.2、创建MQTT网关设备的配置模版
 
-### MQTT网关设备主题
+- 创建配置模版，选择刚才建立的功能模版，并配置模版中的协议、数据处理、自动化、告警等配置。如果设备发送的是二进制等非json格式数据时，需要在数据处理中配置数据预处理脚本。
+![descript](./images/image20.png)
 
-#### 网关设备发布主题
-| 消息类型 | 主题 |
-| --- | --- |
-| 网关设备上报属性主题 | gateway/attributes |
-| 设备上报事件主题 | gateway/event |
+### 2.3、创建MQTT网关子设备配置模板
 
-**上报属性消息规范**
+- 同创建网关的配置模版
 
-``` showLineNumbers
-{sub_device_addr1:{key1:value1, ...},sub_device_addr1:{key1:value1, ...}}
-```
-例如：
-```json showLineNumbers
-{
-	"A0001": {
-		"temp": 18.5,
-		"hum": 40
-	},
-	"A0002": {
-		"temp": 19.5,
-		"hum": 44.2
-	}
-}
-```
+### 2.4、创建设备并关联
 
-**上报事件规范**
-``` showLineNumbers
-{sub_device_addr1:{"method":identifier,"params":{param1:value,param2:value2...}}}
-```
-例如：
-```json showLineNumbers
-{
-	"A0001":{
-		"method": "warning",
-		"params": {
-			"battery":0
-		}
-	}
-}
-```
+- 在Thinspanel中创建网关设备和子网关设备，并设置设备的用户名和密码，选择设备的配置模版、自动化、告警等。
+- 在已创建的网关设备里，关联网关子设备并配置子设备地址
+![descript](./images/image21.png)
 
+### 2.5、配置设备端
 
-:::tip
+- 根据网关设备里的**连接**页信息配置网关设备的凭证信息，根据【腾讯文档】ThingsPanel_MQTT_网关设备接入规范[ThingsPanel_MQTT_网关设备接入规范](https://docs.qq.com/doc/DZXlnb25scnZRc1dK)配置主题等。
+- 设备端根据协议配置凭证信息和上报规则，然后进行数据上报。
 
-sub_device_addr在子设备`编辑参数`弹窗的`设备地址`栏输入，同一个网关设备下不重复
+### 2.6、开启设备 
+- 开启设备
 
-:::
-
-#### 网关设备订阅主题
-| 消息类型 | 主题 |
-| --- | --- |
-| 网关设备订阅属性主题 | gateway/attributes/\{AccessToken或username\} |
-| 订阅命令主题 | gateway/command/\{accesstoken或username\} |
-
-**下发属性报文的规范同上报属性规**
-
-**下发命令规范同上报事件**
-
-:::info
-
-订阅主题中\{accesstoken或username\}根据选择的认证方式填写，AccessToken接入认证填写AccessToken，MQTT Basic认证填写用户名
-
-:::
+### 2.7、查看数据
+- 通过设备-遥测查看设备数据，并可在平台上进行遥测数据下发，属性、命令下发等来控制设备。
+![descript](./images/image22.png)
