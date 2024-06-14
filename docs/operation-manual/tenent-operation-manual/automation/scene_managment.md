@@ -22,7 +22,7 @@ sidebar_position: 2
 - 点击激活可以触发一次场景的设置
 ![descript](./images/image81.jpg)
 
-### 2.4、#### 查看场景日志
+### 2.4、查看场景日志
 - 点击日志，可以查看场景的的触发日志。
 ![descript](./images/image82.png)
 
