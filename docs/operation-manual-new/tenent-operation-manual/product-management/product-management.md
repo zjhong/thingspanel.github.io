@@ -20,7 +20,7 @@ sidebar_position: 1
 3.  生成批次
 4.  在预注册列表中添加设备
 5.  给产品添加固件
-6.  在创建任务前上线设备，订阅ota/device/infrom/{AccessToken}准备接收升级信息
+6.  在创建任务前上线设备，订阅ota/device/infrom/AccessToken准备接收升级信息
 7.  添加升级任务，选择设备
 8.  接收到升级信息后查看升级任务列表
 9.  模拟升级上报升级进度ota/device/progress例如：
