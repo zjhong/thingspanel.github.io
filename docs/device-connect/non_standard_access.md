@@ -1,5 +1,5 @@
 ---
-sidebar_position: 9
+sidebar_position: 16
 ---
 
 # 非官方标准MQTT协议设备接入
