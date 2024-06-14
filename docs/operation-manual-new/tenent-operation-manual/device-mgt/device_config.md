@@ -75,5 +75,4 @@ sidebar_position: 3
 
 配置设备自动激活、设备在线设置、删除设备配置
 
-![descript](./images/media/image65.png){width="6.530555555555556in"
-height="2.741836176727909in"}
+![descript](./images/media/image65.png)
