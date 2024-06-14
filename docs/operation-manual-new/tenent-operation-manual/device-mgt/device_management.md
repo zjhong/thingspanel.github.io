@@ -27,8 +27,6 @@ sidebar_position: 1
 
 - 设备上报的遥测数据在这里展示，同时支持模拟数据上报和下发控制功能，主要是以key，value方式和设备进行交互。
 
-- 遥测上报报文示例：{\"ip\":\"127.0.0.1\",\"mac\":\"xxxxxxxxxx\",\"port\":1883}
-
 ![descript](./images/image41.png)
 
 - 模拟数据上报功能支持上报自己定义的数据，进行功能检查使用。
@@ -55,21 +53,17 @@ sidebar_position: 1
 
 - 设备上报时一些字段不想存储到平台，可以通过配置属性的方式呈现，这里可以定义每个字段的含义，同时可以下发属性控制到设备上。
 
-- 属性上报的报文示例：{\"temperature\":28.5,\"version\":\"v0.1\",\"switch\":true}
-
 ![descript](./images/image46.png)
 
 ### 事件（上报）
 
 - 展示设备上报的事件，并可查看上报事件的状态和错误原因。
 
-- 事件上报的报文示例：{\"method\":\"FindAnimal\",\"params\":{\"count\":2,\"animalType\":\"cat\"}}
-
 ![descript](./images/image47.png)
 
 ### 命令（下发）
 
-- 以自定义的方式(http等）对设备发送命令进行控制，同时可以查看到下发命令的状态和错误原因。
+- 以自定义的方式(http等)对设备发送命令进行控制，同时可以查看到下发命令的状态和错误原因。
 
 ![descript](./images/image48.png)
 
