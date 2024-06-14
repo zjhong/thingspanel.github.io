@@ -75,4 +75,4 @@ sidebar_position: 3
 
 配置设备自动激活、设备在线设置、删除设备配置
 
-![descript](./images/media/image65.png)
+![descript](./images/image65.png)
