@@ -21,12 +21,12 @@ sidebar_position: 2
 ### 2.1、创建功能模版（可选）
 
 - 进入ThinsPanel系统，点击设备辑入-功能模版，创建功能模版，并针对遥测、属性、事件、命令等配置名称和标识符的映射关系。
-![descript](./images/image19.png)
+![descript](./image/image19.png)
 
 ### 2.2、创建MQTT网关设备的配置模版
 
 - 创建配置模版，选择刚才建立的功能模版，并配置模版中的协议、数据处理、自动化、告警等配置。如果设备发送的是二进制等非json格式数据时，需要在数据处理中配置数据预处理脚本。
-![descript](./images/image20.png)
+![descript](./image/image20.png)
 
 ### 2.3、创建MQTT网关子设备配置模板
 
@@ -36,7 +36,7 @@ sidebar_position: 2
 
 - 在Thinspanel中创建网关设备和子网关设备，并设置设备的用户名和密码，选择设备的配置模版、自动化、告警等。
 - 在已创建的网关设备里，关联网关子设备并配置子设备地址
-![descript](./images/image21.png)
+![descript](./image/image21.png)
 
 ### 2.5、配置设备端
 
@@ -48,4 +48,4 @@ sidebar_position: 2
 
 ### 2.7、查看数据
 - 通过设备-遥测查看设备数据，并可在平台上进行遥测数据下发，属性、命令下发等来控制设备。
-![descript](./images/image22.png)
+![descript](./image/image22.png)
