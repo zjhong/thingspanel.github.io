@@ -7,7 +7,7 @@ sidebar_position: 3
 ## 系统环境
 
 启动ThingsPanel之前，请先确定已经安装好以下环境:
-1. go 1.18.x [下载](https://go.dev/dl/) [安装](https://go.dev/doc/install)
+1. go 1.22.x [下载](https://go.dev/dl/) [安装](https://go.dev/doc/install)
 
 :::tip
 
@@ -56,7 +56,7 @@ docker run --name timescaledb -p 5432:5432 \
 -e POSTGRES_USER=postgres \
 -e POSTGRES_PASSWORD=postgresThingsPanel2022 \
 -v /home/tp/data/dir:/var/lib/postgresql/data \
-timescale/timescaledb:latest-pg12
+timescale/timescaledb:latest-pg14
 ```
 
 ## GMQTT安装启动
@@ -69,7 +69,7 @@ GMQTT是平台接入设备消息的服务，设备消息通过GMQTT进入到平�
 
 ```text
 ./gmqtt/cmd/gmqttd/default_config.yml        --系统配置 
-```
+
 
 ./gmqtt/cmd/gmqttd/default_config.yml说明：
 ```yml
@@ -87,7 +87,7 @@ log:
   level: info # 日志级别 debug | info | warn | error
 ```
 
-### （推荐）直接运行服务
+### 直接运行服务（推荐）
 这里有三种方式可根据实际需要选择其中一种
 #### 直接运行
 ```sh
@@ -95,14 +95,14 @@ $ git clone https://github.com/ThingsPanel/gmqtt.git
 $ cd gmqtt/cmd/gmqttd
 $ go run . start -c default_config.yml
 ```
-#### （推荐）pm2托管
+#### pm2托管（推荐）
 这里建议使用pm2托管（pm2的安装需要node.js环境，安装pm2的步骤非常简单，可百度自行查找）
 1. git clone https://github.com/ThingsPanel/gmqtt.git
 2. cd gmqtt/cmd/gmqttd，在这个目录下创建gmqtt.sh
 3. 将go run . start -c default_config.yml写入gmqtt.sh
 4. pm2 start gmqtt.sh即可启动gmqtt（pm2 save后会保存进程状态（运行或停止），在系统重启后会自动恢复到保存状态）
 
-#### docker方式运行服务
+#### Docker方式运行服务
 
 ```sh
 $ git clone https://github.com/ThingsPanel/gmqtt.git
