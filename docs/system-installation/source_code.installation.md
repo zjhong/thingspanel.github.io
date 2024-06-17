@@ -1,12 +1,12 @@
 ---
 sidebar_position: 3
 ---
-
 # 源码安装
 
 ## 系统环境
 
 启动ThingsPanel之前，请先确定已经安装好以下环境:
+
 1. go 1.22.x [下载](https://go.dev/dl/) [安装](https://go.dev/doc/install)
 
 :::tip
@@ -18,30 +18,33 @@ sidebar_position: 3
 ```bash
 go env -w GO111MODULE=on;go env -w GOPROXY=https://goproxy.cn
 ```
+
 3. （数据库使用docker简化安装步骤）安装Docker（[安装docker社区版](https://docs.docker.com/engine/install/)）
 4. redis 6 [安装](https://redis.io/docs/getting-started/installation/install-redis-from-source/)
-  可参考docker安装(如果没有/home/tp/backend/redis/目录会自动创建)：
-  ```sh
+   可参考docker安装(如果没有/home/tp/backend/redis/目录会自动创建)：
+
+```sh
   docker run --name tp-redis \
   -v /home/tp/backend/redis/data:/data \
   -v /home/tp/backend/redis/conf/redis.conf:/usr/local/etc/redis/redis.conf \
   -v /home/tp/backend/redis/logs:/logs \
   -d -p 6379:6379 redis redis-server --requirepass redis2022
-  ```
-4. TimescaleDB 12 [安装](https://docs.timescale.com/install/latest/installation-docker/)
+```
 
+4. TimescaleDB 12(支持高版本，支持传统部署) [安装](https://docs.timescale.com/install/latest/installation-docker/)
 
 ### (可参考)timescaledb数据库搭建
+
 1. 获取数据库镜像
 
 ```bash
 docker pull timescale/timescaledb:latest-pg12
 ```
 
-2. 创建并运行容器  
-POSTGRES_DB 数据库名  
-POSTGRES_USER 用户名  
-POSTGRES_PASSWORD 密码  
+2. 创建并运行容器
+   POSTGRES_DB 数据库名
+   POSTGRES_USER 用户名
+   POSTGRES_PASSWORD 密码
 
 :::tip
 
@@ -60,18 +63,20 @@ timescale/timescaledb:latest-pg14
 ```
 
 ## GMQTT安装启动
+
 GMQTT是平台接入设备消息的服务，设备消息通过GMQTT进入到平台，平台通过GMQTT发送消息给设备。
-1. 进入[GMQTT仓库](https://github.com/ThingsPanel/gmqtt)
+
+1. 进入[GMQTT仓库](https://github.com/ThingsPanel/thingspanel-gmqtt)
 2. Star仓库
-3. 下载源代码,建议使用git clone下载源代码,注意代码分支,master为最新的开发分支.Tags列对应其他版本.
+3. 下载源代码,建议使用git clone下载源代码,注意代码分支,main为最新的开发分支.Tags列对应其他版本.
 
 ### 配置文件
 
 ```text
-./gmqtt/cmd/gmqttd/default_config.yml        --系统配置 
+./thingspanel-gmqtt/cmd/gmqttd/default_config.yml        --系统配置 
 
 
-./gmqtt/cmd/gmqttd/default_config.yml说明：
+./thingspanel-gmqtt/cmd/gmqttd/default_config.yml说明：
 ```yml
 listeners:
   - address: ":1883"   # 接入端口
@@ -88,192 +93,276 @@ log:
 ```
 
 ### 直接运行服务（推荐）
+
 这里有三种方式可根据实际需要选择其中一种
+
 #### 直接运行
+
 ```sh
-$ git clone https://github.com/ThingsPanel/gmqtt.git
-$ cd gmqtt/cmd/gmqttd
+$ git clone https://github.com/ThingsPanel/thingspanel-gmqtt.git
+$ cd thingspanel-gmqtt/cmd/gmqttd
 $ go run . start -c default_config.yml
 ```
+
 #### pm2托管（推荐）
+
 这里建议使用pm2托管（pm2的安装需要node.js环境，安装pm2的步骤非常简单，可百度自行查找）
-1. git clone https://github.com/ThingsPanel/gmqtt.git
-2. cd gmqtt/cmd/gmqttd，在这个目录下创建gmqtt.sh
+
+1. git clone https://github.com/ThingsPanel/thingspanel-gmqtt.git
+2. cd thingspanel-gmqtt/cmd/gmqttd，在这个目录下创建gmqtt.sh
 3. 将go run . start -c default_config.yml写入gmqtt.sh
 4. pm2 start gmqtt.sh即可启动gmqtt（pm2 save后会保存进程状态（运行或停止），在系统重启后会自动恢复到保存状态）
 
 #### Docker方式运行服务
 
 ```sh
-$ git clone https://github.com/ThingsPanel/gmqtt.git
-$ cd gmqtt
+$ git clone https://github.com/ThingsPanel/thingspanel-gmqtt.git
+$ cd thingspanel-gmqtt
 $ docker build -t gmqtt .
 $ docker run -p 1883:1883 -p 8883:8883 -p 8082:8082 -p 8083:8083  -p 8084:8084  gmqtt
 ```
 
-## ThingsPanel-Go安装启动
+## ThingsPanel-Backend-Community安装启动
 
-平台是前后端分离的架构，ThingsPanel-Go是平台的后端，给前端提供API服务（同时给协议插件提供API服务），需要连接GMQTT和数据库（注意修改./conf/app.conf，与安装数据库时候设置的用户名密码保持一致）。
+平台是前后端分离的架构，ThingsPanel-Backend-Community是平台的后端，给前端提供API服务（同时给协议插件提供API服务），需要连接GMQTT和数据库（注意修改./configs/conf.yml，与安装数据库时候设置的用户名密码保持一致）。
 
-1. 进入[ThingsPanel-Go仓库](https://github.com/ThingsPanel/ThingsPanel-Go)
+1. 进入[ThingsPanel-Backend-Community仓库](https://github.com/ThingsPanel/thingspanel-backend-community)
 2. Star仓库
-![star](./image/git1.png)
+   ![star](./image/git1.png)
 3. 下载源代码,建议使用git clone下载源代码,注意代码分支,main为最新的开发分支.Tags列对应其他版本.
-![下载](./image/git2.png)
+   ![下载](./image/git2.png)
 
 ### 相关目录文件说明
 
 ```text
-./conf/app.conf                  --系统配置 
-./modules/dataService/config.yml --mqtt客户端等
+./configs/conf.yml                  --系统配置 
 ./files/logs/                    --系统日志存放目录
-./TP.sql                         --数据库初始化脚本
+./sql/                         --数据库初始化脚本目录(系统启动时会自动检查脚本进行初始化)
 ```
 
-1. ./conf/app.conf配置说明
+1. ./configs/conf.yml配置说明
 
 ```yml
-appname = ThingsPanel-Go
-runmode = prod
+# 如需在系统变量中设置配置项，可使用GOTP_开头的变量名，如：GOTP_DB_PSQL_DBTYPE为db.psql.dbType
 
-[dev]
-httpport = 9999
+service:
+  http: 
+    host: 0.0.0.0 # 默认localhost
+    port: # 默认9999
 
-[prod]
-httpport = 9999
+log:
+  # 0-控制台输出 1-文件输出 2-文件和控制台输出
+  adapter_type: 0
+  # 文件最多保存多少天
+  maxdays: 7
+  # 日志级别 (panic fatal error warn info debug trace)
+  level: debug # 默认info
+  # 每个文件保存的最大行数
+  maxlines: 10000
 
-# Redis 配置
-# redis 连接字符串
-redis.conn = 127.0.0.1:6379
-# redis 数据库号
-redis.dbNum = 0
-# redis 密码
-redis.password = "****"
+jwt:
+  key: 1hj5b0sp9
 
-# JWT 配置
-# JWT 加密密钥
-jwt_secret = "tp-Go"
-# 返回原始请求体数据字节
-copyrequestbody = true
-# 开启 session
-sessionon = true
-# 关闭自动渲染
-autorender = false
 
-# 数据库配置 (TimescaleDB, Cassandra)
-dbType = timescaledb
-psqladdr = "127.0.0.1"
-psqlport = 5432
-psqldb = ****
-psqluser = postgres
-psqlpass = ****
-# 空闲连接池中连接的最大数量
-psqlMaxConns = 5
-# 打开数据库连接的最大数量
-psqlMaxOpen = 256
-# channel 缓冲区大小
-channel_buffer_size = 10000
-# 批次等待时间（秒）
-batch_wait_time = 1
-# 批次大小
-batch_size = 1000
-# 批次写入线程数
-write_workers = 2
 
-# 日志配置
-# 0-控制台输出 1-文件输出 2-文件和控制台输出
-adapter_type = 0
-# 文件最多保存多少天
-maxdays = 7
-# 日志级别 (0-紧急 1-报警 2-严重错误 3-错误 4-警告 5-注意 6-信息 7-调试)
-level = 5
-# SQL日志级别 (1-静音 2-错误 3-警告 4-信息). 注意: sql日志只在level大于等于5级别才会输出。
-sqlloglevel = 1
-# 慢SQL阈值（毫秒）。慢SQL会在sqlloglevel大于等于3时输出。
-slow_threshold = 200
-# 每个文件保存的最大行数
-maxlines = 10000
+db:
+  psql:
+    host: 127.0.0.1 # 默认localhost
+    port: 5432 # 默认5432
+    dbname: ThingsPanel #数据库名
+    username: postgres #数据库用户名
+    password: postgresThingsPanel #数据库密码
+    time_zone: Asia/Shanghai # 默认Asia/Shanghai
 
-# OpenAPI 配置
-openapi.httpport = 9990
-# 验签标志
-openapi.sign = false
-# X-OpenAPI-Timestamp 过期时间（分钟）
-openapi.timestamp = 5
-```
-2. ./modules/dataService/config.yml配置说明
+    idle_conns: 5 # 空闲连接池中的最大连接数，建议为open_conns的百分之5-20之间
+    open_conns: 50 # 最大打开连接数,timescaledb默认为100,考虑到其他服务也会使用数据库，建议这里设置为50
+    # SQL日志级别 (1-静音 2-错误 3-警告 4-信息)
+    log_level: 4 # 默认1
+    # 慢SQL阈值（毫秒）。慢SQL会在sqlloglevel大于等于3时输出。
+    slow_threshold: 200 # 默认200毫秒
 
-```yml
+  redis:
+    addr: 127.0.0.1:6379 # 默认localhost:6379
+    db: 1 # 默认0
+    password: "redis"
+
+grpc:
+  tptodb_server: 127.0.0.1:50052
+  tptodb_type: TSDB # NONE、TSDB
+
+# mqtt服务：gmqtt、vernemq
+mqtt_server: gmqtt
+
 mqtt:
-  broker: 127.0.0.1:1883 #mqtt接入地址和端口
-  user: root # 平台的mqtt用户名
-  pass: root # 平台的mqtt用户密码
-  topicToSubscribe: device/attributes # 平台订阅设备属性主题
-  topicToPublish: device/attributes # 平台发布设备属性主题前置
-  topicToStatus: device/status # 平台订阅设备状态主题
-  gateway_topic: gateway/attributes # 平台订阅网关设备属性主题
-  topicToCommand: device/command # 平台发布命令主题
-  topicToEvent: device/event # 设备上报事件主题
-  topicToInform: ota/device/inform # 设备订阅升级信息主题
-api:
-  http_host: 127.0.0.1:8083 # gmqttAPI服务地址（主要用来管理接入的权限）
-plugin:
-  http_host: 127.0.0.1:503 # MODEBUS协议插件API服务地址
+  access_address: 47.92.253.145:1883
+  broker: 127.0.0.1:1883 # 默认localhost:1883
+  user: root # 默认root
+  pass: root # 默认root
+  channel_buffer_size: 10000 # 默认10000
+  write_workers: 1 # 消息队列入库线程数，默认10
+  #消息服务质量 0：消息最多传递一次，如果当时客户端不可用，则会丢失该消息。1：消息传递至少 1 次。2：消息仅传送一次。
+  # 以下主题都为默认主题
+  telemetry: #遥测相关
+    # devices/telemetry/control/{device_number}
+    # 如果发给协议插件，则是devices/telemetry/control/{device_id}
+    publish_topic: devices/telemetry/control/  #平台发布遥测主题
+    subscribe_topic: devices/telemetry   #平台订阅遥测主题
+    gateway_subscribe_topic: gateway/telemetry #平台订阅网关遥测主题
+    #gateway/telemetry/{device_number}/+
+    gateway_publish_topic: gateway/telemetry/control/%s  #平台发布网关遥测主题
+    pool_size: 10 # 消息处理线程池，默认100
+    batch_size: 100 # 默认100 最大一次批量写入数据库的数据量
+    qos: 0
+  attributes: #属性相关
+    # 订阅属性：+位置是{message_id} 
+    subscribe_topic: devices/attributes/+
+    # 发布接收属性响应：devices/attributes/response/{device_number}/{message_id}
+    publish_response_topic: devices/attributes/response/
+    # 发布设置属性请求：devices/attributes/set/{device_number}/{message_id}
+    publish_topic: devices/attributes/set/
+    # 订阅设置属性响应：+位置是{message_id} 
+    subscribe_response_topic: devices/attributes/set/response/+
+    # 发布获取属性请求：devices/attributes/get/{device_number}
+    publish_get_topic: devices/attributes/get/
+  
+    # 设备属性上报 gateway/attributes/{message_id}
+    gateway_subscribe_topic: gateway/attributes/+
+    # 订阅平台收到属性的响应  gateway/attributes/response/{device_number}/+
+    gateway_publish_response_topic: gateway/attributes/response/%s/%s
+    # 平台设置设备属性 gateway/attributes/set/{device_number}/+
+    gateway_publish_topic: gateway/attributes/set/%s/%s
+    # 平台设置属性 设备响应 gateway/attributes/set/response/{message_id}
+    gateway_subscribe_response_topic: gateway/attributes/set/response/+
+    # 平台下发请求获取属性 gateway/attributes/get/{device_number}
+    gateway_publish_get_topic: gateway/attributes/get/%s
+
+    qos: 1
+  commands: #命令相关
+    # devices/command/{device_number}/{message_id}
+    publish_topic: devices/command/
+    subscribe_topic: devices/command/response/+
+    # 设备接受命令回应 gateway/command/response/{message_id}
+    gateway_subscribe_topic: gateway/command/response/+
+    # 下发命令 gateway/command/{device_number}/+
+    gateway_publish_topic: gateway/command/%s/%s
+    # 测试
+    # gateway_publish_topic: devices/command/%s/%s
+    qos: 1
+  events: #事件相关
+    # 订阅事件：+位置是message_id
+    subscribe_topic: devices/event/+
+    # 发布事件响应：devices/event/response/{device_number}/{message_id}
+    publish_topic: devices/event/response/
+
+    # 设备上报事件 gateway/event/{message_id}
+    gateway_subscribe_topic: gateway/event/+
+    # 平台接受到事件响应 gateway/event/response/{device_number}/+
+    gateway_publish_topic: gateway/event/response/%s/%s
+
+    qos: 1
+  ota: #OTA升级相关
+    # ota升级包消息推送：ota/devices/infrom/{device_number}
+    publish_topic: ota/devices/infrom/
+    subscribe_topic: ota/devices/progress
+    qos: 1
+
+
+
+mqtts:
+  broker: 127.0.0.1:8883
+  user: root
+  pass: root
+  caPath : ./conf/certificate/ca.crt
+  crtPath: ./conf/certificate/client.crt
+  keyPath : ./conf/certificate/client.key
+
+automation_task_confg:
+  once_task_limit: 100
+  periodic_task_limit: 100
+
+ota:
+ # 推送到设备端的ota升级包下载地址，
+  download_address: http://demo.thingspanel.cn 
+
+```
+
+```yml
+
 ```
 
 ### 运行
 
-GMQTT、redis、TimescaleDB首先启动，更新ThingsPanel-Go相关配置
+GMQTT、redis、TimescaleDB首先启动，再启动thingspanel-backend-community：
 
 ```sh
-$ git clone https://github.com/ThingsPanel/ThingsPanel-Go.git
-$ cd ThingsPanel-Go
-$ go run . start
+$ git clone https://github.com/ThingsPanel/thingspanel-backend-community.git
+$ cd thingspanel-backend-community
+$ go run . 
 ```
 
-## ThingsPanel-Backend-Vue安装打包
+## ThingsPanel-Frontend-Community安装打包
 
-### 安装node.js 16.14（如果要在服务器打包前端需要安装node.js）
-[安装node.js](https://nodejs.org/zh-cn/download/)
+### 安装node.js 20.11.0（如果要在服务器打包前端需要安装node.js）
+
+[安装node.js](https://nodejs.org/download/release/)
+
 1. 点击上面链接进入下载页
-2. 往下翻找到`以往的版本`
-3. 例如找到16.14点下载然后选node-v16.14.2-linux-x64.tar.xz,执行命令下载
-  ```
-  wget https://nodejs.org/download/release/v16.14.2/node-v16.14.2-linux-x64.tar.xz
-  ```
+2. 往下翻找到 `以往的版本`
+3. 例如找到20.11.0点下载然后选node-v20.11.0-linux-x64.tar.xz,执行命令下载
+
+```
+  wget https://nodejs.org/download/release/v20.11.0/node-v20.11.0-linux-x64.tar.xz
+```
+
 4. 获取到压缩包后，[node.js二进制安装](https://github.com/nodejs/help/wiki/Installation)
 
 ### 前端源码打包
+
 1. 下载源码
-  ```bash
-  git clone https://github.com/ThingsPanel/ThingsPanel-Backend-Vue.git
-  ```
+
+```bash
+  git clone https://github.com/ThingsPanel/thingspanel-frontend-community.git
+```
+
 2. 安装依赖
-  ```bash
+
+```bash
   npm install
-  ```
+```
+
 3. 打包生成dist文件(打包前删除.env.dev和.env.production文件)
-  ```bash
+
+```bash
   rm .env.dev&&rm .env.production
   npm run build
-  ```
-## visual-editor安装打包（可视化）
+```
+
+## visual-editor安装打包（可视化）(社区版不支持，可不安装)
 
 ### 安装pnpm
+
 1. 在以上node.js安装好的前提下，执行命令安装pnpm
+
 ```
 npm i -g pnpm
 ```
+
 ### 可视化源码打包
+
 1. 下载源码
+
 ```bash
 https://github.com/ThingsPanel/visual-editor.git
 ```
+
 2. 安装依赖
+
 ```bash
 npm install
 ```
+
 3. 打包生成dist
+
 ```bash
 pnpm run build
 ```
@@ -319,15 +408,22 @@ $ go run . start
 ```
 
 ## rule-engine安装启动（可选-规则引擎）
+
 请参考https://github.com/ThingsPanel/rule-engine 的readme安装
+
 ## 前端部署
+
 ### 安装nginx
+
 ```sh
 yum install nginx
 ```
+
 ### nginx配置
+
 安装完成后，进入/etc/nginx/conf.d目录下新建文件tp.conf，将下面内容复制进去,然后将前端打包好的dist内的文件复制到/usr/share/nginx/html，(推荐把/usr/share/nginx/html换成dist路径)；将打包好的可视化dist文件放到/usr/share/nginx/visual-editor/dist与一下配置一致；
 **注意如果访问有权限问题，修改nginx.conf配置**
+
 ```conf
 server {
     listen 80;
@@ -335,7 +431,7 @@ server {
     charset utf-8;
     client_max_body_size 10m;
     root /home/dev/dist;
-    
+  
     gzip on;
     # 设置最小的文件大小为1KB，小于1KB的文件不会被压缩。
     gzip_min_length 1k;
@@ -380,27 +476,28 @@ server {
         add_header 'Access-Control-Allow-Headers' 'DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range';
         add_header 'Access-Control-Expose-Headers' 'Content-Length,Content-Range';
     }
-    
+  
     # 可视化部分
     location /visual {
         alias /home/visual-editor/dist;
         index index.html index.htm;
         try_files $uri $uri/ /visual/index.html;
     }
-    
+  
     location / {
         index index.html index.htm;
+	try_files $uri $uri/ /index.html;
     }
 }
 
 ```
+
 ### 重启nginx
+
 ```sh
 nginx -t
 nginx -s reload
 ```
-
-
 
 :::info
 
