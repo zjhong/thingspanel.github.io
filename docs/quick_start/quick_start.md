@@ -50,16 +50,15 @@ cd thingspanel-docker&&docker-compose -f docker-compose.yml up
 - 查看数据：在设备详情或者看板查看数据。 
 
 :::
-## 30秒接入一个温湿度设备并查看数据【适合老手】
-
-![30秒接入一个温湿度设备并查看数据](./30s.gif)
-
-## 详细步骤【适合新手】
-
-### 创建设备
+## 15秒接入一个设备并查看数据
+<video controls src="15s_add_device.mp4" title="Title"></video>
 
 
-  
+
+* Mosquitto MQTT 客户端是一款轻量级的消息发布和订阅系统，支持MQTT协议，用于设备间的通信。
+
+
+
 
 :::info
 
