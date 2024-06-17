@@ -51,7 +51,10 @@ cd thingspanel-docker&&docker-compose -f docker-compose.yml up
 
 :::
 ## 15秒接入一个设备并查看数据
-<video controls src="15s_add_device.mp4" title="Title"></video>
+<video controls src="/videos/15s_add_device.mp4" title="15秒添加设备并推送数据" width="1000"></video>
+
+
+
 
 
 
