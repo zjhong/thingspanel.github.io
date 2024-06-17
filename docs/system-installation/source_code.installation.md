@@ -20,7 +20,7 @@ go env -w GO111MODULE=on;go env -w GOPROXY=https://goproxy.cn
 ```
 
 3. （数据库使用docker简化安装步骤）安装Docker（[安装docker社区版](https://docs.docker.com/engine/install/)）
-4. redis 6 [安装](https://redis.io/docs/getting-started/installation/install-redis-from-source/)
+4. redis 6(支持高版本，支持传统部署) [安装](https://redis.io/docs/getting-started/installation/install-redis-from-source/)
    可参考docker安装(如果没有/home/tp/backend/redis/目录会自动创建)：
 
 ```sh
@@ -48,7 +48,7 @@ docker pull timescale/timescaledb:latest-pg12
 
 :::tip
 
-此处如果修改了数据库名、用户名或密码请对应修改后端配置文件（./conf/app.conf）
+此处如果修改了数据库名、用户名或密码请对应修改后端配置文件（./configs/conf.yml）
 
 :::
 
@@ -68,7 +68,7 @@ GMQTT是平台接入设备消息的服务，设备消息通过GMQTT进入到平�
 
 1. 进入[GMQTT仓库](https://github.com/ThingsPanel/thingspanel-gmqtt)
 2. Star仓库
-3. 下载源代码,建议使用git clone下载源代码,注意代码分支,main为最新的开发分支.Tags列对应其他版本.
+3. 下载源代码,建议使用git clone下载源代码(未安装git，可直接下载仓库的zip包),注意代码分支,main为最新的开发分支.Tags列对应其他版本.
 
 ### 配置文件
 
@@ -129,7 +129,7 @@ $ docker run -p 1883:1883 -p 8883:8883 -p 8082:8082 -p 8083:8083  -p 8084:8084  
 1. 进入[ThingsPanel-Backend-Community仓库](https://github.com/ThingsPanel/thingspanel-backend-community)
 2. Star仓库(以下图片为示例，请进入ThingsPanel-Backend-Community仓库操作)
    ![star](./image/git1.png)
-3. 下载源代码,建议使用git clone下载源代码,注意代码分支,main为最新的开发分支.Tags列对应其他版本.(以下图片为示例，请进入ThingsPanel-Backend-Community仓库操作)
+3. 下载源代码,建议使用git clone下载源代码,注意代码分支(未安装git，可直接下载仓库的zip包),main为最新的开发分支.Tags列对应其他版本.(以下图片为示例，请进入ThingsPanel-Backend-Community仓库操作)
    ![下载](./image/git2.png)
 
 ### 相关目录文件说明
@@ -286,10 +286,6 @@ ota:
 
 ```
 
-```yml
-
-```
-
 ### 运行
 
 GMQTT、redis、TimescaleDB首先启动，再启动thingspanel-backend-community：
@@ -318,7 +314,7 @@ $ go run .
 
 ### 前端源码打包
 
-1. 下载源码
+1. 下载源码(未安装git，可直接下载仓库的zip包)
 
 ```bash
   git clone https://github.com/ThingsPanel/thingspanel-frontend-community.git
@@ -349,7 +345,7 @@ npm i -g pnpm
 
 ### 可视化源码打包
 
-1. 下载源码
+1. 下载源码(未安装git，可直接下载仓库的zip包)
 
 ```bash
 https://github.com/ThingsPanel/visual-editor.git
@@ -373,7 +369,7 @@ modbus-protocol-plugin是平台的协议插件，MODBUS协议的设备对接协�
 
 1. 进入[modbus-protocol-plugin仓库](https://github.com/ThingsPanel/modbus-protocol-plugin)
 2. Star仓库
-3. 下载源代码,建议使用git clone下载源代码,注意代码分支,main为最新的开发分支.Tags列对应其他版本.
+3. 下载源代码,建议使用git clone下载源代码(未安装git，可直接下载仓库的zip包),注意代码分支,main为最新的开发分支.Tags列对应其他版本.
 
 ### 配置文件
 
