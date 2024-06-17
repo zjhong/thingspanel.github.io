@@ -127,9 +127,9 @@ $ docker run -p 1883:1883 -p 8883:8883 -p 8082:8082 -p 8083:8083  -p 8084:8084  
 平台是前后端分离的架构，ThingsPanel-Backend-Community是平台的后端，给前端提供API服务（同时给协议插件提供API服务），需要连接GMQTT和数据库（注意修改./configs/conf.yml，与安装数据库时候设置的用户名密码保持一致）。
 
 1. 进入[ThingsPanel-Backend-Community仓库](https://github.com/ThingsPanel/thingspanel-backend-community)
-2. Star仓库
+2. Star仓库(以下图片为示例，请进入ThingsPanel-Backend-Community仓库操作)
    ![star](./image/git1.png)
-3. 下载源代码,建议使用git clone下载源代码,注意代码分支,main为最新的开发分支.Tags列对应其他版本.
+3. 下载源代码,建议使用git clone下载源代码,注意代码分支,main为最新的开发分支.Tags列对应其他版本.(以下图片为示例，请进入ThingsPanel-Backend-Community仓库操作)
    ![下载](./image/git2.png)
 
 ### 相关目录文件说明
