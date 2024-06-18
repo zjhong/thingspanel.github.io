@@ -116,13 +116,13 @@ sidebar_position: 4
 ### 5.2、平台推送数据给插件
 #### 5.2.1、协议插件订阅主题如下：
 - mqtt用户：root  （使用thingspanel-go配置文件中的用户名和密码）
-- ```订阅主题：plugin/modbus/# (说明：plugin/modbus/为注册插件时填写的订阅主题前缀,主题部分是MQTT主题规范（凡是device_number的要改为device_id），实际上就是协议插件比平台下行规范多了主题前缀)```
+- 订阅主题：```plugin//modbus//#(说明：plugin/modbus/为注册插件时填写的订阅主题前缀,主题部分是MQTT主题规范（凡是device_number的要改为device_id），实际上就是协议插件比平台下行规范多了主题前缀)```
 - 报文规范：{key:value...}（示例是telemetry或attributes，commands请参考平台主题规范）
 
 #### 5.2.2、 网关设备消息
 - mqtt用户：root  （使用thingspanel-go配置文件中的用户名和密码）
-- ```订阅主题：plugin/modbus/# (说明：plugin/modbus/为注册插件时填写的订阅主题前缀,主题#部分是MQTT主题规范（凡是device_number的要改为device_id），实际上就是协议插件比平台下行规范多了主题前缀  )```
-- ```报文规范：{sub_device_addr:{key:value...},sub_device_addr:{key:value...}} （示例是telemetry或attributes，commands请参考平台主题规范）```
+- 订阅主题：```plugin/modbus/# (说明：plugin/modbus/为注册插件时填写的订阅主题前缀,主题#部分是MQTT主题规范（凡是device_number的要改为device_id），实际上就是协议插件比平台下行规范多了主题前缀  )```
+- 报文规范：```{sub_device_addr:{key:value...},sub_device_addr:{key:value...}} （示例是telemetry或attributes，commands请参考平台主题规范）```
 
 
 
