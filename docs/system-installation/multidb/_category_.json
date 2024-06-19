@@ -1,8 +1,8 @@
 {
-  "label": "多数据库支持",
+  "label": "其它数据库部署",
   "position": 20,
   "link": {
     "type": "generated-index",
-    "description": "多数据库支持"
+    "description": "其它数据库部署"
   }
 }
