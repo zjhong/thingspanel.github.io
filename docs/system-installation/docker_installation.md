@@ -22,10 +22,10 @@ windows环境下请安装 `Docker Desktop`和 `git`。
 - **安装docker-compose**
 
   
-
+:::tip
   如docker-compose的v2.9.0运行出错，可下载v2.10.0使用。
   如要使用docker-compose较新版本，请自行修改项目里的docker-compose.yml文件
-
+:::
 
 
   ```bash
