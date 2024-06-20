@@ -5,7 +5,7 @@ sidebar_position: 6
 # 系统截图
 
 ### 系统首页  
-![ThingsPanel系统首页](../img/ThingsPanel-0.6.0-homepage.png)  
+![ThingsPanel系统首页](../img/tp-1.0.0-homepage.png)  
 
 ### 设备接入
 ![ThingsPanel设备接入与管理](../img/ThingsPanel-0.6.0-devicelist.png)  

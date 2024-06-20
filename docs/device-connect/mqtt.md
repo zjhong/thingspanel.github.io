@@ -4,64 +4,71 @@ sidebar_position: 1
 
 # MQTT直连设备接入
 
-## 什么是MQTT
+## 接入步骤
+1. 创建设备
+2. 选择配置模板（可不选择）
+3. 获得设备端配置参数
+4. 配置设备端
+5. 完成接入
 
-消息队列遥测传输（英语：Message Queuing Telemetry Transport，MQTT）是ISO 标准（ISO/IEC PRF 20922）下基于发布 (Publish)/订阅 (Subscribe)范式的消息协议，可视为“资料传递的桥梁”，它工作在 TCP/IP协议族上，是为硬件性能低下的远程设备以及网络状况糟糕的情况下而设计的发布/订阅型消息协议，为此，它需要一个消息中间件，以解决当前繁重的资料传输协议，如：HTTP。
-MQTT 是一种简单的消息传递协议，设计用于具有低带宽的受限设备。因此，它是物联网设备接入的完美解决方案。
 
-## ThingsPanel支持的接入
-ThingsPanel平台提供了标准的 MQTT 接入协议，支持 MQTT v3.1/v.5，任何支持 MQTT 协议的设备都可以通过相应的 MQTT 客户端代码接入平台。
+## 快速接入视频
 
-## MQTT直连设备接入方式
+<video controls src="/videos/15s_add_device.mp4" title="15秒添加设备并推送数据" width="1000"></video>
 
-| 接入类型 | 认证 | 接入地址 | MQTT安全认证 |
-| ----- | --- | -------- | ---- |
-| MQTT | AccessToken接入认证 | mqtt://服务IP:1883| 用户名：AccessToken 密码：空 |
-| MQTT | MQTT Basic认证 | mqtt://服务IP:1883| 用户名：必填 密码：必填 |
 
-![接入配置](image/1.png)
+## 详细过程
 
-## MQTT主题
+### 创建设备
 
-### 设备发布主题
-| 消息类型 | 主题 |
-| --- | --- |
-| 设备上报属性主题 | device/attributes |
-| 设备上报事件主题 | device/event |
+在【设备接入】菜单中，点击【添加设备】，手动添加即可添加设备，添加时有2个选项。
 
-**上报属性消息规范**
+* 不选择【设备配置模板】：默认使用MQTT协议，采用MQTT Basic认证连接
+* 选择【设备配置模板】：使用设备配置模板，则采用设备配置模板中绑定的协议
 
-``` showLineNumbers
-{key1:value1, key2:value2 ...}
+### 配置设备端
+![MQTT连接参数](./image/mqtt_connect_params.png)
+
+### 模拟报送
 ```
-例如：
-```json showLineNumbers
-{
-	"temp": 18.5,
-	"hum": 40
-}
+mosquitto_pub -h 47.115.210.16 -p 1883 -t "devices/telemetry" -m "{\"test_data1\":25.5,\"test_data2\":60}" -u "5547c615-593e-6fb1-41f" -P "ced8bfd" -i "mqtt_28e7fdfd-514"
+
 ```
-**上报事件规范**
+这个命令使用 mosquitto_pub 工具向一个 MQTT 服务器发布消息。下面是对该命令各个部分的详细解释：
 
-``` showLineNumbers
-{"method":identifier,"params":{param1:value,param2:value2...}}
+mosquitto_pub：这是 Mosquitto 提供的一个命令行工具，用于向 MQTT 服务器发布消息。
 ```
-例如：
-```json showLineNumbers
-{
-	"method": "warning",
-	"params": {
-		"battery":0
-	}
-}
+-h 47.115.210.16：指定 MQTT 服务器的主机地址（IP 地址为 47.115.210.16）。
+
+-p 1883：指定 MQTT 服务器的端口号，这里是 1883，这是 MQTT 的默认端口。
+
+-t "devices/telemetry"：指定消息发布的主题（topic），这里是 devices/telemetry。
+
+-m "{\"test_data1\":25.5,\"test_data2\":60}"：指定消息的内容（payload），这里是一个 JSON 格式的字符串，包含两个数据字段 test_data1 和 test_data2，它们的值分别是 25.5 和 60。
+
+-u "5547c615-593e-6fb1-41f"：指定用于连接 MQTT 服务器的用户名。
+
+-P "ced8bfd"：指定用于连接 MQTT 服务器的密码。
+
+-i "mqtt_28e7fdfd-514"：指定客户端 ID，这里是 mqtt_28e7fdfd-514。
+
+总结起来，这个命令通过 MQTT 协议向指定的服务器发布一条消息，主题是 devices/telemetry，消息内容是 {"test_data1":25.5,"test_data2":60}，使用了特定的用户名和密码进行身份验证，并指定了客户端 ID。
 ```
 
-### 设备订阅主题
-| 消息类型 | 主题 |
-| --- | --- |
-| 平台下发属性主题 | device/attributes/\{AccessToken或username\} |
-| 平台下发命令主题 | device/command/\{AccessToken或username\} |
+### 采用Mosquitto MQTT客户端报送
 
-**下发属性报文的规范同上报属性规**
+需要安装Mosquitto MQTT客户端到本地操作系统，命令同模拟发送命令。
 
-**下发命令规范同上报事件**
+### 推送后结果
+
+![数据推送结果](./image/mqtt_data_push_result.png)
+
+## MQTT接入规范
+[ThingsPanel_MQTT_设备接入规范](https://docs.qq.com/doc/DZWtRdUpIVlVhQm5U)
+
+## 常见问题
+
+1. 注意MQTT Broker和平台可能不是一个地址。
+2. MQTT ClientID需要唯一不重复。
+3. 如果设备在线但是没消息，可能是主题错误。
+4. 模拟推送正常意味着平台的组件工作正常，问题可能在设备端。

@@ -31,7 +31,7 @@ go env -w GO111MODULE=on;go env -w GOPROXY=https://goproxy.cn
   -d -p 6379:6379 redis redis-server --requirepass redis
 ```
 
-4. TimescaleDB 12(支持高版本，支持传统部署) [安装](https://docs.timescale.com/install/latest/installation-docker/)
+4. TimescaleDB 14(支持高版本，支持传统部署) [安装](https://docs.timescale.com/install/latest/installation-docker/)
 
 ### (可参考)timescaledb数据库搭建
 
@@ -74,22 +74,35 @@ GMQTT是平台接入设备消息的服务，设备消息通过GMQTT进入到平�
 
 ```text
 ./thingspanel-gmqtt/cmd/gmqttd/default_config.yml        --系统配置 
-
+./thingspanel-gmqtt/cmd/gmqttd/thingspanel.yml        --ThingsPanel插件配置
+```
 
 ./thingspanel-gmqtt/cmd/gmqttd/default_config.yml说明：
 ```yml
-listeners:
-  - address: ":1883"   # 接入端口
-  - address: ":8883"  # mqtts接入
-    tls:
-      cacert: "./certs/ca.crt"
-      cert: "./certs/server.crt"
-      key: "./certs/server.key"
-api:
-  http:
-    - address: "tcp://0.0.0.0:8083"  # http服务配置（ThingsPanel-GO调用，主要用来管理接入的权限）
 log:
   level: info # 日志级别 debug | info | warn | error
+```
+./thingspanel-gmqtt/cmd/gmqttd/thingspanel.yml说明：
+```yml
+db:
+  redis:
+    # redis 连接字符串
+    conn: 127.0.0.1:6379
+    # redis 数据库号
+    db_num: 1
+    # redis 密码
+    password: "redis"
+  psql:
+    psqladdr: "127.0.0.1"
+    psqlport: 5432
+    psqldb: ThingsPanel
+    psqluser: postgres
+    psqlpass: postgresThingsPanel
+mqtt:
+  # root用户的密码
+  broker: localhost:1883
+  password: "root"
+  plugin_password: "plugin"
 ```
 
 ### 直接运行服务（推荐）
@@ -111,7 +124,8 @@ $ go run . start -c default_config.yml
 1. git clone https://github.com/ThingsPanel/thingspanel-gmqtt.git
 2. cd thingspanel-gmqtt/cmd/gmqttd，在这个目录下创建gmqtt.sh
 3. 将go run . start -c default_config.yml写入gmqtt.sh
-4. pm2 start gmqtt.sh即可启动gmqtt（pm2 save后会保存进程状态（运行或停止），在系统重启后会自动恢复到保存状态）
+4. chmod 777 gmqtt.sh
+5. pm2 start gmqtt.sh即可启动gmqtt（pm2 save后会保存进程状态（运行或停止），在系统重启后会自动恢复到保存状态）
 
 #### Docker方式运行服务
 
