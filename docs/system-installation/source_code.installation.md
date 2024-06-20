@@ -28,7 +28,7 @@ go env -w GO111MODULE=on;go env -w GOPROXY=https://goproxy.cn
   -v /home/tp/backend/redis/data:/data \
   -v /home/tp/backend/redis/conf/redis.conf:/usr/local/etc/redis/redis.conf \
   -v /home/tp/backend/redis/logs:/logs \
-  -d -p 6379:6379 redis redis-server --requirepass redis2022
+  -d -p 6379:6379 redis redis-server --requirepass redis
 ```
 
 4. TimescaleDB 12(支持高版本，支持传统部署) [安装](https://docs.timescale.com/install/latest/installation-docker/)
@@ -38,7 +38,7 @@ go env -w GO111MODULE=on;go env -w GOPROXY=https://goproxy.cn
 1. 获取数据库镜像
 
 ```bash
-docker pull timescale/timescaledb:latest-pg12
+docker pull timescale/timescaledb:latest-pg14
 ```
 
 2. 创建并运行容器
@@ -57,7 +57,7 @@ docker run --name timescaledb -p 5432:5432 \
 -e TZ=Asia/Shanghai \
 -e POSTGRES_DB=ThingsPanel \
 -e POSTGRES_USER=postgres \
--e POSTGRES_PASSWORD=postgresThingsPanel2022 \
+-e POSTGRES_PASSWORD=postgresThingsPanel \
 -v /home/tp/data/dir:/var/lib/postgresql/data \
 timescale/timescaledb:latest-pg14
 ```
@@ -323,14 +323,14 @@ $ go run .
 2. 安装依赖
 
 ```bash
-  npm install
+  npm install -g pnpm
+  pnpm install
 ```
 
-3. 打包生成dist文件(打包前删除.env.dev和.env.production文件)
+3. 打包生成dist文件
 
 ```bash
-  rm .env.dev&&rm .env.production
-  npm run build
+  pnpm build
 ```
 
 ## visual-editor安装打包（可视化）(社区版不支持，可不安装)
