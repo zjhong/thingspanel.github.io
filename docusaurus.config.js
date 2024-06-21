@@ -17,7 +17,7 @@ const siteConfig = {
 };
 
 const config = {
-  title: 'ThingsPanel',
+  title: 'ThingsPanel开源物联网平台',
   tagline: "物联网应用支撑平台",
   url: 'https://www.thingspanel.io/',
   baseUrl: '/',
@@ -78,6 +78,10 @@ const config = {
           // Remove this to remove the "edit this page" links.
           editUrl:
             'https://github.com/ThingsPanel/thingspanel.github.io/tree/source/',
+          // 显示最后更新时间
+          showLastUpdateTime: true,
+          // 如果你也想显示最后更新者的名字（需要Git环境）
+          showLastUpdateAuthor: true,
         },
         blog: {
           showReadingTime: true,
