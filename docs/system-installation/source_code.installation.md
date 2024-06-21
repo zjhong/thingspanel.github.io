@@ -340,6 +340,7 @@ $ go run .
   npm install -g pnpm
   pnpm install
 ```
+**注意：** 如果遇到错误 `npm ERR! Unsupported URL Type "workspace:": workspace:*`，可能是因为你使用了 `npm install` 来安装依赖，npm不支持 workspace 特性故而报错，请安装 pnpm 并使用 pnpm 来安装包。
 
 3. 打包生成dist文件
 
@@ -431,7 +432,7 @@ yum install nginx
 
 ### nginx配置
 
-安装完成后，进入/etc/nginx/conf.d目录下新建文件tp.conf，将下面内容复制进去,然后将前端打包好的dist内的文件复制到/usr/share/nginx/html，(推荐把/usr/share/nginx/html换成dist路径)；将打包好的可视化dist文件放到/usr/share/nginx/visual-editor/dist与一下配置一致；
+安装完成后，进入/etc/nginx/conf.d目录下新建文件tp.conf，将下面内容复制进去,然后将前端**打包好的dist内的文件**复制到/usr/share/nginx/html，(推荐把/usr/share/nginx/html换成dist路径)；将打包好的可视化dist文件放到/usr/share/nginx/visual-editor/dist与一下配置一致；
 **注意如果访问有权限问题，修改nginx.conf配置**
 
 ```conf
