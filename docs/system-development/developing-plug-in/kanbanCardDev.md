@@ -19,7 +19,7 @@ sidebar_position: 1
 我们可以在3个地方使用看板卡片：
 1. 首页
    ![看板卡片用在首页](kanbanImages/shouye.png)
-2. 设备功能模板的Web图表配置（仅图表类型）
+2. 设备功能模板的Web图表配置（仅图表卡片）
    ![看板卡片用在设备功能模板的Web图表配置](kanbanImages/gongnengmuban1.png)
    ![看板卡片用在设备功能模板的Web图表配置](kanbanImages/gongnengmuban2.png)
 3. 设备功能模板的App图表配置（仅图表卡片）
@@ -29,7 +29,7 @@ sidebar_position: 1
 ## 二、如何开发看板卡片
 ### 1. 明确将要开发的卡片类型
 看板卡片目前分为2个类型：**系统卡片** 和 **图表卡片**。其中只有图表卡片可以在设备功能模板的Web图表配置和App图表配置中使用。
-![看板卡片代码所在目录](kanbanImages/mulu.png)
+<img src="kanbanImages/mulu.png" width="250" />
 ### 2. 在相应目录下创建文件夹和文件进行开发
 一般包括4个文件（参考demo：/src/card/chart-card/demo）：
 ```
@@ -40,11 +40,12 @@ demo
   - poster.png // 卡片示意图，缩略图尺寸236*148
 ```
 *注：卡片全部自动加载，无需做额外引入。*
+
 ### 3. 数据获取和保存
 #### 1）卡片配置表单（card-config.vue）中的数据如何保存
 卡片配置表单用于收集用户对于卡片的配置信息，上层会通过传入一个ctx对象来收集数据：
 `const ctx = inject<IConfigCtx>('config-ctx')!;`
-表单中需要保存的信息都保存在**ctx.config**这个对象中即可。例如如果需要用户选一个颜色，可以把选定的颜色信息保存在ctx.config.color中：
+表单中需要保存的信息都保存在 **ctx.config** 这个对象中即可。例如如果需要用户选一个颜色，可以把选定的颜色信息保存在 ctx.config.color 中：
 `<NColorPicker v-model:value="ctx.config.color" :show-alpha="false" />`。
 #### 2）如何在卡片组件（component.vue）中获取配置信息
 在卡片组件中，可以通过组件的props属性获取配置信息：`props.card.config`。
@@ -53,17 +54,16 @@ demo
 #### 3）设备数据的获取
 在开发**图表卡片**的时候需要获取设备数据。有2种获取设备数据的方式：
 1. http方式：通过http请求接口 `/telemetry/datas/current/keys` 来获取设备的历史数据；
-2. WebSocket方式：通过WebSocket的API来获取设备的实时数据：
+2. WebSocket方式：通过WebSocket的API来获取设备的实时数据。
+我们已经在上层封装了通过WebSocket请求设备数据的方法，在卡片中**只需要实现一个updateData方法**，上层会调用这个方法，把最新的数据传递进来：
     ```typescript
-    const { otherBaseURL } = createServiceConfig(import.meta.env);
-    let wsUrl = otherBaseURL.demo.replace('http', 'ws').replace('http', 'ws');
-    wsUrl += `/telemetry/datas/current/keys/ws`;
-    const params = {
-        device_id: dataSource.deviceSource[0]?.deviceId ?? '',
-        keys: arr.deviceSource[0].metricsId
-      };
-    request.get<any>('/telemetry/datas/current/keys', { params });
+    defineExpose({
+      updateData: (_deviceId: string | undefined, metricsId: string | undefined, data: any) => {
+         detail.value = metricsId ? data[metricsId] : '';
+      }
+   });
     ```
+
 ### 4. 注意事项
 #### 1）响应式
 卡片的大小是用户可以编辑的，卡片UI设计时**必须要遵循Responsive UI的设计原则**，UI必须能适应不同卡片大小。
@@ -77,3 +77,249 @@ demo
 6. 字体大小的灵活性：使用相对单位（如em, rem）设置字体大小，允许字体随着用户设置或父元素大小变化而缩放，提高可访问性。
 #### 2）卡片示意图（poster.png）
 开发完成后，截图保到当前卡片目录下。
+
+### 5. 举个例子
+以“数字指示器”卡片为例，它的4个文件代码分别为：
+#### 1）导出目录 index.tx
+```typescript
+import { defineAsyncComponent } from 'vue';
+import poster from '@/components/panel/chart-card/demo/poster.png';
+import type { ICardDefine } from '@/components/panel/card';
+
+export default {
+  id: 'chart-demo',
+  type: 'chart',
+  component: defineAsyncComponent(() => import('./component.vue')),
+  poster,
+  title: '数字指示器',
+  configForm: defineAsyncComponent(() => import('./card-config.vue')),
+  preset: {
+    dataSource: {
+      origin: 'device',
+      sourceNum: 1,
+      systemSource: [{}],
+      deviceSource: [{}]
+    },
+    config: {
+      name: '123'
+    },
+    iCardViewDefault: {
+      w: 5,
+      h: 3,
+      minH: 1,
+      minW: 2
+    }
+  }
+} as ICardDefine;
+```
+#### 2）卡片组件 component.vue
+```typescript
+<script setup lang="ts">
+import { onBeforeUnmount, onMounted, ref, watch } from 'vue';
+import type { ICardData } from '@/components/panel/card';
+import { deviceDetail } from '../curve/modules/api';
+import { icons as iconOptions } from './icons';
+
+// 正式环境可根据api获取
+const detail = ref<string>('');
+const unit = ref<string>('');
+const props = defineProps<{
+  card: ICardData;
+}>();
+const fontSize = ref('14px');
+
+const myCard = ref<any | null>(null); // 创建一个ref来引用NCard
+let resizeObserver: ResizeObserver | null = null;
+
+defineExpose({
+  updateData: (_deviceId: string | undefined, metricsId: string | undefined, data: any) => {
+    detail.value = metricsId ? data[metricsId] : '';
+  }
+});
+
+const setSeries: (dataSource) => void = async dataSource => {
+  const arr: any = dataSource;
+  const querDetail = {
+    device_id: dataSource?.deviceSource ? dataSource?.deviceSource[0]?.deviceId ?? '' : '',
+    keys: arr.deviceSource ? arr.deviceSource[0]?.metricsId : ''
+  };
+  if (querDetail.device_id && querDetail.keys) {
+    const detailValue = await deviceDetail(querDetail);
+    if (detailValue?.data[0]?.unit) {
+      unit.value = detailValue?.data[0]?.unit;
+    }
+    if (detailValue?.data[0]?.value) {
+      detail.value = detailValue.data[0].value;
+    }
+  } else {
+    // window.$message?.error("查询不到设备");
+  }
+};
+
+const handleResize = entries => {
+  for (const entry of entries) {
+    // 根据卡片宽度动态调整字体大小，这里仅为示例逻辑，实际应用中需按需调整
+    let dFontSize = `${entry.contentRect.width / 20}px`; // 假设字体大小与宽度成反比，20为比例系数
+    if (entry.contentRect.width / entry.contentRect.height > 3) {
+      dFontSize = `${(entry.contentRect.width + (entry.contentRect.height * entry.contentRect.width) / entry.contentRect.height / 2) / 20 / (1 + entry.contentRect.width / entry.contentRect.height / 2)}px`;
+    }
+    console.log('font size:', dFontSize);
+    fontSize.value = dFontSize;
+  }
+};
+
+watch(
+  () => props.card?.dataSource?.deviceSource,
+  () => {
+    detail.value = '';
+    unit.value = '';
+    setSeries(props.card?.dataSource);
+  },
+  { deep: true }
+);
+
+onMounted(() => {
+  setSeries(props?.card?.dataSource);
+  // 确保DOM已经挂载后再初始化ResizeObserver
+  if (myCard.value) {
+    resizeObserver = new ResizeObserver(handleResize);
+    resizeObserver.observe(myCard.value.$el);
+  }
+});
+
+onBeforeUnmount(() => {
+  // 组件卸载前清除观察器
+  if (resizeObserver) {
+    resizeObserver.disconnect();
+    resizeObserver = null;
+  }
+});
+</script>
+
+<template>
+  <div class="h-full">
+    <div class="h-full flex-col items-center">
+      <NCard ref="myCard" :bordered="false" class="box">
+        <div class="bt-data" :style="'font-size:' + fontSize">
+          <span class="name" :title="card?.dataSource?.deviceSource?.[0]?.metricsName || ''">
+            {{ card?.dataSource?.deviceSource?.[0]?.metricsName }}
+          </span>
+          <NIcon class="iconclass" :color="props?.card?.config?.color || 'black'">
+            <component :is="iconOptions[props?.card?.config?.iconName || 'ClipboardCode20Regular']" />
+          </NIcon>
+          <div class="value-wrap">
+            <span class="value" :title="detail != null && detail != '' ? detail : '8'">
+              {{ detail != null && detail !== '' ? detail : '8' }}
+            </span>
+            <span class="unit" :title="props?.card?.config?.unit || unit">
+              {{ props?.card?.config?.unit || unit }}
+            </span>
+          </div>
+        </div>
+      </NCard>
+    </div>
+  </div>
+</template>
+
+<style scoped>
+.items-center {
+  padding: 0;
+}
+:deep(.n-card__content:first-child) {
+  padding-top: 0;
+}
+.box {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+.iconclass.n-icon svg {
+  width: 100%;
+  height: 100%;
+}
+.bt-data {
+  width: 100%;
+  height: 100%;
+}
+
+.iconclass {
+  position: absolute;
+  bottom: 20%;
+  left: 7%;
+  width: 25%;
+  height: 25%;
+}
+
+.value-wrap {
+  position: absolute;
+  display: flex;
+  bottom: 20%;
+  left: 55%;
+  width: 45%;
+  line-height: 1;
+}
+
+.unit {
+  margin-left: 10px;
+  font-size: 1em;
+  overflow: hidden;
+  display: block;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  transform: translateY(-50%);
+}
+
+.name {
+  position: absolute;
+  top: 15%;
+  left: 15%;
+  width: 45%;
+  font-size: 1.2em;
+  display: block;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.value {
+  flex-shrink: 0;
+  max-width: 75%;
+  font-size: 2.5em;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  vertical-align: text-bottom;
+}
+</style>
+```
+#### 3）卡片配置表单 card-config.vue
+```typescript
+<script lang="ts" setup>
+import { inject } from 'vue';
+import type { IConfigCtx } from '@/components/panel/card';
+import { $t } from '@/locales';
+import IconSelector from './icon-selector.vue';
+
+const ctx = inject<IConfigCtx>('config-ctx')!;
+
+const setIcon = icon => {
+  ctx.config.iconName = icon; // 更新配置
+};
+</script>
+
+<template>
+  <NForm :model="ctx.config">
+    <NFormItem :label="$t('device_template.table_header.unit')">
+      <NInput v-model:value="ctx.config.unit" :placeholder="$t('device_template.table_header.pleaseEnterTheUnit')" />
+    </NFormItem>
+    <NFormItem :label="$t('generate.color')">
+      <NColorPicker v-model:value="ctx.config.color" :show-alpha="false" />
+    </NFormItem>
+    <IconSelector @icon-selected="setIcon" />
+  </NForm>
+</template>
+```
+#### 4）卡片示意图 poster.png
+<img src="kanbanImages/poster.png" width="200" />
