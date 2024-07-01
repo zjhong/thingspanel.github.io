@@ -125,7 +125,7 @@ ThingsPanel插件是一个多功能中间件组件，设计用于实现以下两
 {
     "voucher":"",
     "service_identifier":""
-
+}
 
 ## 5、交换数据相关
 ### 5.1插件推送数据到平台
