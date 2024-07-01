@@ -4,7 +4,7 @@ sidebar_position: 4
 
 
 
-# 协议插件开发
+# 设备接入插件开发
 
 ## 背景
 在物联网领域，通信协议极为多样且复杂。常见的协议包括MQTT、TCP、HTTP、SOAP、Modbus、OPC-UA、Bacnet、KNX、LwM2M和SNMP等，还有数不清的其他协议以及各种各样的网关服务或三方服务。这些协议和服务在通信模式和报文规范上各不相同，导致在系统集成时面临巨大的复杂性。这种复杂性不仅使系统变得臃肿、效率低下，而且还难以扩展和维护，进而导致维护成本居高不下。
@@ -122,11 +122,12 @@ ThingsPanel插件是一个多功能中间件组件，设计用于实现以下两
 - 如果是服务接入，这个接口用来获取对应服务的设备列表以添加设备到系统
 - /api/v1/plugin/device/list GET
 - 请求
+```  
 {
     "voucher":"",
     "service_identifier":""
 }
-
+```
 ## 5、交换数据相关
 ### 5.1插件推送数据到平台
 - 协议插件发送遥测规范如下，属性类似（事件参考平台MQTT主题设计规范）：
@@ -173,12 +174,16 @@ ThingsPanel插件是一个多功能中间件组件，设计用于实现以下两
 - 服务标识符：系统中唯一标识这个插件，由字母和数字组成
 - 类别：选择接入协议
 - HTTP服务地址：填写平台后端能够直接访问插件API的地址，格式如127.0.0.1:8151
-- 服务订阅主题前缀 ：格式如{name一般为服务标识符}：service/name/
+- 服务订阅主题前缀 ：格式如
+  ```
+  {name一般为服务标识符}：service/name/
+  ```
 - 设备接入地址：这里填写的内容会显示在设备凭证管理的下发，以提示用户应该将设备连接到哪里
 
 ### 方式一：使用SQL注册(参考SQL)：
+```
 INSERT INTO public.service_plugins (id, "name", service_identifier, service_type, last_active_time, "version", create_at, update_at, description, service_config, remark) VALUES('41d04726-8490-119f-7689-7f8d0193ad45', 'ALARM协议', 'ALARM', 1, NULL, 'v0.0.1', '2024-06-23 16:44:26.607', '2024-06-30 14:05:25.790', '', '{"http_address":"127.0.0.1:8151","device_type":1,"sub_topic_prefix":"service/alarm/","access_address":":8150"}'::json, '');
-
+```
 ### 方式二：平台注册
 - 超管账号登录
 - 应用管理-插件管理，点击添加新服务按钮
