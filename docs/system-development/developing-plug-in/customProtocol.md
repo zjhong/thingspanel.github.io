@@ -183,6 +183,11 @@ INSERT INTO public.service_plugins (id, "name", service_identifier, service_type
 - 超管账号登录
 - 应用管理-插件管理，点击添加新服务按钮
 
+## 7、开发步骤
+- 协议插件开发流程
+【腾讯文档】ThingsPanel-服务插件-协议开发流程
+https://docs.qq.com/doc/DZXZCSk5McVBPSlRL
+- 服务插件开发流程
 
 
 
