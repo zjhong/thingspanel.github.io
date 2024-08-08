@@ -26,7 +26,6 @@ sidebar_position: 4
 
 
 1.**协议接入**：支持各种物联网协议（如MODBUS、MQTT等），使ThingsPanel平台能够**直接**与使用这些协议的设备通信。
-
 2.**服务接入**：连接ThingsPanel平台与各种第三方物联网平台，**间接**与设备通信。
 
 ### 功能
@@ -53,16 +52,17 @@ https://docs.qq.com/doc/DZWNvcWFJa25VSVlS
   * Modbus插件：https://github.com/ThingsPanel/modbus-protocol-plugin
   * GB26875.3-2011 报警传输网络通信协议插件 https://gitee.com/ThingsPanel/protocol-plugin-pressure-transmitter
 ### 开发步骤
-#### 下载插件模板
-	 git clone https://gitee.com/ThingsPanel/protocol-plugin-template.git 
-#### 根据需求修改模板代码
+#### 1.下载插件模板
+```
+git clone https://gitee.com/ThingsPanel/protocol-plugin-template.git 
+```
+#### 2.根据需求修改模板代码
 * 阅读模板源码的README-DEV.md
 * 使用最新的SDK
-  
-		go get -u github.com/ThingsPanel/tp-protocol-sdk-go@latest  
- 
+```
+go get -u github.com/ThingsPanel/tp-protocol-sdk-go@latest  
+```
 * 根据该设备的协议文档，修改模板的凭证表单from_voucher.json
-
   * 该表单会显示在**设备接入-设备详情**的连接栏中，用来认证设备，一般是设备协议中能唯一标识设备的信息。该表单经用户填写会保存到平台，设备连接到插件后，插件调平台的获取设备配置接口/api/v1/plugin/device/config来认证设备（voucher字段是一个json字符串）。
   ![在设备接入-设备详情的连接栏中，用来认证设备](./images/certificationform.png)
 * 判断该协议设备的对接是否需要配置表单（一般固定字段规范的TCP协议不需要）
@@ -76,19 +76,19 @@ https://docs.qq.com/doc/DZWNvcWFJa25VSVlS
 	* 通知事件接口
     	* 当平台对服务插件相关的设备做了某些改动如删除设备、新增设备等需要通知到服务插件的，可以实现改接口，如果有些事件平台没有开发，需要联系相关开发人员讨论
 * 修改配置文件，运行测试
-#### 注册插件到ThingsPanel
+#### 3.注册插件到ThingsPanel
 * 确定好端口、插件名称、主题前缀后就可以注册插件了
 * 注册服务插件需要使用超管账户
 * 具体参考服务插件-设计文档中注册插件
 
-#### 编写核心流程
+#### 4.编写核心流程
 * 插件的核心流程就是处理每个接入到插件的设备消息的上下行报文
 * 这里可以使用AI工具辅助生成代码帮助开发繁琐的协议解析和组装内容
   * 比如模板里提供了tcp协议的模板：service/service_tcp.go
 * 解析后的数据可以通过mqtt/mqtt_client.go中的方法发到平台
 * 平台发给设备的数据通过mqtt/sub/sub.go中的得到，处理后转发给设备
 
-#### 集成测试
+#### 5.集成测试
 * 注册插件后，在平台首先需要创建配置模板
 * 在配置模板详情的协议配置栏可以选择该协议
 * 创建设备然后绑定该模板，填写设备的凭证信息，然后将设备连接到插件就完成了对接
