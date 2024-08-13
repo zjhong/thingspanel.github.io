@@ -27,24 +27,24 @@ CTWing平台提供了多种接入方式
 - CTWing平台配置
   - 登录CTWing平台
   - 创建产品和设备，获取产品ID、Master-APIkey
-    - ![alt text](./img-ctwing/image-1.png)
-    - ![alt text](./img-ctwing/image.png)
-    - ![alt text](./img-ctwing/image-2.png)
+    - ![创建产品](./img-ctwing/image-1.png)
+    - ![设备](./img-ctwing/image.png)
+    - ![产品](./img-ctwing/image-2.png)
   - 新增订阅
     - c.thingspanel.cn:8380为服务插件的地址和服务端口
-    - ![alt text](./img-ctwing/image-3.png)
+    - ![新增订阅](./img-ctwing/image-3.png)
   - 新增应用，获取App Key、App Secret
-    - ![alt text](./img-ctwing/image-4.png)
-    - ![alt text](./img-ctwing/image-5.png)
+    - ![新增应用](./img-ctwing/image-4.png)
+    - ![应用](./img-ctwing/image-5.png)
 - ThingsPanel平台配置
   - 如果没有该服务的配置模板，需要创建
-    - ![alt text](./img-ctwing/image-6.png)
+    - ![配置模板](./img-ctwing/image-6.png)
   - 进入服务接入页面
-    - ![alt text](./img/image-5.png)
+    - ![服务接入](./img/image-5.png)
   - 新增服务接入点
-    - ![alt text](./img-ctwing/image-7.png)
+    - ![新增服务接入点](./img-ctwing/image-7.png)
   - 选择要接入的设备
     - 注意：该设备列表只会显示有推送过数据的设备
-    - ![alt text](./img-ctwing/image-8.png)
+    - ![设备列表](./img-ctwing/image-8.png)
   - 推送数据后，在设备详情页查看数据
-    - ![alt text](./img-ctwing/image-9.png)
+    - ![查看数据](./img-ctwing/image-9.png)

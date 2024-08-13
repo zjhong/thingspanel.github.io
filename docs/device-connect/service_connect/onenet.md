@@ -30,26 +30,26 @@ OneNET平台提供了多种接入方式
   - 创建产品
     - ![创建产品](./img/image-1.png)
   - 添加设备
-    - ![alt text](./img/image-2.png)
+    - ![添加设备](./img/image-2.png)
   - 设置流转
-    - ![alt text](./img/image-3.png)
+    - ![设置流转](./img/image-3.png)
     - c.thingspanel.cn:8280是服务插件的地址和服务端口
   - 模拟设备推送数据
-    - ![alt text](./img/image-4.png)
+    - ![模拟设备推送数据](./img/image-4.png)
   - 获取产品ID和ACCESS_KEY
-    - ![alt text](./img/image-7.png)
+    - ![获取产品ID和ACCESS_KEY](./img/image-7.png)
 - ThingsPanel平台配置
   - 如果没有该服务的配置模板，需要创建
-    - ![alt text](./img/image-8.png)
+    - ![配置模板](./img/image-8.png)
   - 进入服务接入页面
-    - ![alt text](./img/image-5.png)
+    - ![服务接入](./img/image-5.png)
   - 新增服务接入点
-    - ![alt text](./img/image-6.png)
+    - ![新增服务接入点](./img/image-6.png)
   - 选择要接入的设备
     - 注意：该设备列表只会显示有推送过数据的设备
-    - ![alt text](./img/image-9.png)
+    - ![选择要接入的设备](./img/image-9.png)
   - 推送数据后，在设备详情页查看数据
-    - ![alt text](./img/image-10.png)
+    - ![查看数据](./img/image-10.png)
 
 ## 其他
 
