@@ -20,7 +20,7 @@ OneNET平台提供了多种接入方式
 1. 注册OneNET账号
 2. 注册或者部署ThingsPanel平台，并部署OneNet服务插件
 3. OneNet服务插件已经注册到平台
-   ![alt text](./img/image-11.png)
+   ![插件管理](./img/image-11.png)
 
 ### 操作步骤
 
