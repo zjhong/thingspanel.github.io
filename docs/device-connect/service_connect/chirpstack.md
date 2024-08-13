@@ -21,9 +21,21 @@ ChirpStack接入插件，通过APIkey、IP地址、应用ID来实现设备的获
 
 ### 注册插件步骤
 
+参考插件代码库README.md https://github.com/ThingsPanel/service_plugin_chirpstack
+
 
 ### 设备接入步骤
 
+1. 服务接入中选择ChirpStack服务接入插件
+   ![选择ChirpStack服务接入插件](./img/selecchirpstackplugin.png)
+2. 添加新增接入点
+   填写ChirpStack的APIkey、IP地址、应用ID   
+   ![新增ChirpStack接入点](./img/chirpstackendpoint.png)
+3. 配置设备列表，筛选需要接入的设备
+   ![筛选需要接入的设备](./img/selectchirpstackdevice.png)
+4. 完成接入，查看接入的设备
+   ![ChirpStack设备列表](./img/chirpstackdevicelist.png)
+   ![ChirpStack设备详情](./img/chirpstackdevicedetail.png)
 ## 代码地址
 
 ChirpStack插件代码地址：https://github.com/ThingsPanel/service_plugin_chirpstack
