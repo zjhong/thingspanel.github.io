@@ -43,6 +43,3 @@ sidebar_position: 6
 
 ### 3D 图片
 ![3D](https://assets.thingspanel.cn/web/Yk4d6DmoiFdv_Qgv9uW1Z_3d-o.gif)
-
-
-

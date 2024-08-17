@@ -12,7 +12,7 @@ tags: [ThingsPanel, APP]
 ThingsPanel 是一款物联网底层开源软件，主要功能是采集设备数据、可视化、自动化控制，为众多集成商、设备商、方案商提供快速的产品和交付方案。
 
 ThingsPanel 的手机端 APP 用于对 ThingsPanel 提供移动管理和控制支持。主要实现的功能包括监测、控制、策略、以及设备添加管理等功能。是 ThingsPanel 的轻型使用客户端，支持 SAAS 场景。
-
+<!-- truncate -->
 ## 手机端的功能特点包括：
 
  - 使用 Uniapp 开发，可以方便的编译成 iOS，安卓，微信小程序以及其他小程序，H5。 
