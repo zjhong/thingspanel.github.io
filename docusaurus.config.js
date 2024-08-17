@@ -39,8 +39,13 @@ const config = {
     locales: [ 'en', 'zh-Hans'],
     // locales: [ 'zh-Hans','en', 'fr'],
   },
+  markdown: {
+    mermaid: true,
+  },
   themes: [
     // ... Your other themes.
+    '@docusaurus/theme-mermaid',
+    //'@docusaurus/theme-mermaid-dark',
     [
       require.resolve("@easyops-cn/docusaurus-search-local"),
       {
@@ -222,12 +227,5 @@ const config = {
       }
     }),
 };
-export default {
-  themes: ['@docusaurus/theme-mermaid'],
-  // In order for Mermaid code blocks in Markdown to work,
-  // you also need to enable the Remark plugin with this option
-  markdown: {
-    mermaid: true,
-  },
-};
+
 module.exports = config;
