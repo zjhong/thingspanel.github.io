@@ -228,4 +228,15 @@ const config = {
     }),
 };
 
-module.exports = config;
+module.exports = {
+  // ... 其他配置 ...
+  scripts: [
+    // ... 其他脚本 ...
+    {
+      src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js',
+      async: true,
+      'data-ad-client': 'ca-pub-XXXXXXXXXXXXXXXX', // 替换为您的AdSense发布商ID
+    },
+  ],
+  // ... 其他配置 ...
+};
