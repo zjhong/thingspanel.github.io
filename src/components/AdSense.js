@@ -2,7 +2,11 @@ import React, { useEffect } from 'react';
 
 export default function AdSense(props) {
   useEffect(() => {
-    (window.adsbygoogle = window.adsbygoogle || []).push({});
+    try {
+      (window.adsbygoogle = window.adsbygoogle || []).push({});
+    } catch (e) {
+      console.error(e);
+    }
   }, []);
 
   return (
