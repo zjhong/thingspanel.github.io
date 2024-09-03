@@ -3,11 +3,15 @@ import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
+<<<<<<< HEAD
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import HomepageContent from '@site/src/components/HomepageContent';
 import styles from './index.module.css';
 import Translate, {translate} from '@docusaurus/Translate';
 // import Translate from '@docusaurus/Translate';
+=======
+// import AdSense from '@site/src/components/AdSense';
+>>>>>>> parent of b518ca36c (add google adsense)
 
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
@@ -55,6 +59,7 @@ export default function Home(): JSX.Element {
 
       <HomepageHeader />
       <main>
+<<<<<<< HEAD
         <HomepageFeatures />
           <h3 className={styles.function_Introduction}>
             <Translate
@@ -87,6 +92,12 @@ export default function Home(): JSX.Element {
           </div>
         </footer>
 {/* footer */}
+=======
+        {/* 您的页面内容 */}
+        {/* 暂时注释掉 AdSense 组件 */}
+        {/* <AdSense client="ca-pub-3936883179210897" slot="您的实际广告单元slot" /> */}
+        {/* 更多页面内容 */}
+>>>>>>> parent of b518ca36c (add google adsense)
       </main>
     </Layout>
   );

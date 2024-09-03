@@ -110,13 +110,7 @@ const config = {
       }
     }),
 
-  scripts: [
-    {
-      src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3936883179210897',
-      async: true,
-      crossorigin: "anonymous"
-    },
-  ],
+
 };
 
 module.exports = config;
