@@ -45,26 +45,24 @@ function HomepageHeader() {
     </header>
   );
 }
-
-export default function Home(): JSX.Element {
+export default function Home() {
   const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
       title={`${siteConfig.title}`}
       description={translate({message: '物联网应用支撑平台'})}>
-
       <HomepageHeader />
       <main>
         <HomepageFeatures />
-          <h3 className={styles.function_Introduction}>
-            <Translate
-                  id="Function.Introduced"
-                  description="serf">
-                  功能介绍
-              </Translate></h3>
-          <HomepageContent />
-        
-{/* footer */}
+        <h3 className={styles.function_Introduction}>
+          <Translate
+            id="Function.Introduced"
+            description="serf">
+            功能介绍
+          </Translate>
+        </h3>
+        <HomepageContent />
+        {/* footer */}
         <footer className="footer footer--dark">
           <div className="container container--fluid">
             <div className="footer__links">
@@ -73,20 +71,13 @@ export default function Home(): JSX.Element {
               <a className="footer__link-item" href="https://gitee.com/ThingsPanel">Gitee</a>
               <span className="footer__link-separator">&middot;</span>
               <a className="footer__link-item" href="https://discord.gg/KvM77UmZ">Discord</a>
-              {/* <span className="footer__link-separator">&middot;</span>
-              <a className="footer__link-item" href="#url">Blog</a>
-              <span className="footer__link-separator">&middot;</span>
-              <a className="footer__link-item" href="#url">Contribute</a> */}
             </div>
             <div>
               <Translate id="bottom.ofTheInformation">Copyright © 2022 北京极益科技有限公司 版权所有.</Translate>
             </div>
-                {/* Copyright © 2022 北京极益科技有限公司 版权所有. */}
-                {/* Copyright © 2022 Beijing jiyi Technology Co., LTD. All Rights reserved.  */}
-
           </div>
         </footer>
-{/* footer */}
+        {/* footer */}
       </main>
     </Layout>
   );
