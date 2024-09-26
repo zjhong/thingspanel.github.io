@@ -5,16 +5,18 @@ sidebar_position: 2
 # MQTT网关设备接入
 
 ## 1、接入步骤
-1.  创建设备功能模板(可选)
-2.  创建MQTT网关设备配置模板
-3.  创建MQTT网关子设备配置模板
-4.  创建网关设备
-5.  创建网关子设备
-6.  在已创建的网关设备里，关联网关子设备并配置子设备地址
-7.  根据网关设备里的**连接**页信息配置网关设备的凭证信息，根据
-> 【腾讯文档】ThingsPanel_MQTT_网关设备接入规范[ThingsPanel_MQTT_网关设备接入规范](https://docs.qq.com/doc/DZXlnb25scnZRc1dK)配置主题等
-8.  开启设备
-9.  查看设备数据
+
+1. 创建设备功能模板(可选)
+2. 创建MQTT网关设备配置模板
+3. 创建MQTT网关子设备配置模板
+4. 创建网关设备
+5. 创建网关子设备
+6. 在已创建的网关设备里，关联网关子设备并配置子设备地址
+7. 根据网关设备里的**连接**页信息配置网关设备的凭证信息
+8. 开启设备
+9. 查看设备数据
+
+> [ThingsPanel_MQTT_网关设备接入规范](https://docs.qq.com/doc/DZXlnb25scnZRc1dK)
 
 ## 2、操作
 
@@ -43,9 +45,15 @@ sidebar_position: 2
 - 根据网关设备里的**连接**页信息配置网关设备的凭证信息，根据【腾讯文档】ThingsPanel_MQTT_网关设备接入规范[ThingsPanel_MQTT_网关设备接入规范](https://docs.qq.com/doc/DZXlnb25scnZRc1dK)配置主题等。
 - 设备端根据协议配置凭证信息和上报规则，然后进行数据上报。
 
-### 2.6、开启设备 
+### 2.6、开启设备
+
 - 开启设备
 
 ### 2.7、查看数据
+
 - 通过设备-遥测查看设备数据，并可在平台上进行遥测数据下发，属性、命令下发等来控制设备。
 ![descript](./image/image22.png)
+
+## 设备和平台数据交互规范
+
+[ThingsPanel_MQTT_网关设备接入规范](https://docs.qq.com/doc/DZXlnb25scnZRc1dK)
