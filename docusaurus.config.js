@@ -19,13 +19,13 @@ const config = {
   projectName: 'thingspanel.io',
   deploymentBranch: "main",
   // 添加 scripts 配置用于加载 AdSense
-  scripts: [
-    {
-      src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3936883179210897',
-      async: true,
-      crossorigin: 'anonymous',
-    },
-  ],
+  // scripts: [
+  //   {
+  //     src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3936883179210897',
+  //     async: true,
+  //     crossorigin: 'anonymous',
+  //   },
+  // ],
   
   i18n: {
     defaultLocale: 'en',
