@@ -310,7 +310,11 @@ $ cd thingspanel-backend-community
 $ go run . 
 ```
 
-## ThingsPanel-Frontend-Community安装打包
+## ThingsPanel-Frontend-Community安装打包（）
+
+### 直接下载最新dist压缩包
+
+打开前端仓库https://github.com/ThingsPanel/thingspanel-frontend-community页面，进入release页面，下载标签为latest的dist压缩包
 
 ### 安装node.js 20.11.0（如果要在服务器打包前端需要安装node.js）
 
