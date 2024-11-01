@@ -31,6 +31,8 @@ go env -w GO111MODULE=on;go env -w GOPROXY=https://goproxy.cn
   -d -p 6379:6379 redis redis-server --requirepass redis
 ```
 
+> 提示：如无法下载镜像可使用registry.jihulab.com/thingspanel/docker-images/redis:6.2.7
+
 4. TimescaleDB 14(支持高版本，支持传统部署) [安装](https://docs.timescale.com/install/latest/installation-docker/)
 
 ### (可参考)timescaledb数据库搭建
@@ -40,6 +42,8 @@ go env -w GO111MODULE=on;go env -w GOPROXY=https://goproxy.cn
 ```bash
 docker pull timescale/timescaledb:latest-pg14
 ```
+
+> 提示：如无法下载镜像可使用registry.jihulab.com/thingspanel/docker-images/timescaledb:14
 
 2. 创建并运行容器
    POSTGRES_DB 数据库名
