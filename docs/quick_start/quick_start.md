@@ -4,21 +4,17 @@ sidebar_position: 1
 
 # 快速安装并接入设备
 
-
+## 方法1:使用Docker进行快速安装
 本章节将指导您快速安装ThingsPanel，并实现接入设备，查看设备数据。
-## 先决条件
+### 先决条件
 * 需要先安装好Docker（[安装docker社区版](https://docs.docker.com/engine/installation/)）
 * DockerCompose（[安装Docker Compose](https://docs.docker.com/compose/install/)）
 * Git
 * 使用MQTT模拟器，可使用MQTTbox、MQTT X、 MQTT.fx ，或者使用设备推送数据。
 
-:::info
 
-可参考[`Docker安装环境搭建`](./system-installation/docker_installation)案例。
 
-:::
-
-## 通过Docker容器安装ThingsPanel
+### 通过Docker容器安装ThingsPanel
 
 通过容器化部署是搭建ThingsPanel的最快方式。
 
@@ -39,6 +35,13 @@ cd thingspanel-docker&&docker-compose -f docker-compose.yml up
 :::info
 
 更详细的`步骤`请参考[`Docker安装`](./system-installation/docker_installation)。
+
+:::
+## 方法2:下载Windows安装包安装
+
+:::info
+
+进入QQ群371794256，在群文件中下载exe可执行版本。
 
 :::
 
