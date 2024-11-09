@@ -38,6 +38,8 @@ DBevaer
 ```
 
 # 仓库地址
+
+该插件为企业版收费功能。
 ```
 
 https://github.com/ThingsPanel/thingspanel-TDengine
