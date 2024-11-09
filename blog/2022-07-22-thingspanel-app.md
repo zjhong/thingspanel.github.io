@@ -1,11 +1,8 @@
 ---
 slug: thingspanel-app
 title: ThingsPanel 发布物联网手机客户端（多图）
-authors:
-  name: zjhong
-  title: 极益科技
-  url: https://github.com/zjhong
-  image_url: https://avatars.githubusercontent.com/u/61645647?s=64&v=4
+authors: [zjhong]  # 使用在 authors.yml 中定义的 ID
+
 tags: [ThingsPanel, APP]
 ---
 

@@ -24,6 +24,6 @@ sidebar_position: 1
 
 ## 配置参考
 - 请参考代码库中各协议插的README来配置和理解协议插件
-[`代码库地址`](../../../system-introduction/code_repository)
+[`代码库地址`](../../../introduction/code_repository)
 
 

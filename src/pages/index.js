@@ -34,7 +34,7 @@ function HomepageHeader() {
           <span className={styles.mybuttonstyle}>
           <Link
             className="button button--secondary button--lg"
-            to="/docs/system-introduction/demo">
+            to="/docs/introduction/demo">
             <Translate id="home.viewDemo">
                   查看演示
                 </Translate>

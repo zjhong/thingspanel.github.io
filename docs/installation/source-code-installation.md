@@ -526,6 +526,6 @@ nginx -s reload
 
 :::info
 
-其他信息请查阅[`代码库`](../system-introduction/code_repository)的README安装步骤。
+其他信息请查阅[`代码库`](../introduction/code_repository)的README安装步骤。
 
 :::

@@ -34,7 +34,7 @@ cd thingspanel-docker&&docker-compose -f docker-compose.yml up
 
 :::info
 
-更详细的`步骤`请参考[`Docker安装`](./system-installation/docker_installation)。
+更详细的`步骤`请参考[`Docker安装`](./installation/docker_installation)。
 
 :::
 ## 方法2:下载Windows安装包安装

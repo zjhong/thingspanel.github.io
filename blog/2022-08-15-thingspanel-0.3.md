@@ -1,11 +1,7 @@
 ---
 slug: thingspanel-ver0.3.0-release
 title: ThingsPanel-0.3.0 发布，增加规则引擎、权限系统、优化设备接入
-authors:
-  name: zjhong
-  title: 极益科技
-  url: https://github.com/zjhong
-  image_url: https://avatars.githubusercontent.com/u/61645647?s=64&v=4
+authors: [zjhong]  # 使用在 authors.yml 中定义的 ID
 tags: [ThingsPanel, 规则引擎, 权限系统, 性能测试]
 ---
 
