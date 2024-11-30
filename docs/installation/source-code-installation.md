@@ -2,6 +2,37 @@
 sidebar_position: 3
 ---
 # 源码安装
+## 安装流程图
+
+```mermaid
+flowchart LR
+    classDef default fill:#f0f4f8,stroke:#d0d7de,stroke-width:2px,color:#24292f,rx:8,ry:8
+    classDef primary fill:#e8f0fe,stroke:#4a8af4,stroke-width:2px,color:#1a73e8,rx:8,ry:8
+    classDef optional fill:#fef1f1,stroke:#d73a49,stroke-width:2px,color:#cb2431,rx:8,ry:8
+
+    A[先决条件] --> B[Docker]
+    A --> C[Go 1.22.x]
+    A --> D[Redis 6]
+    A --> E[TimescaleDB 14]
+    
+    B & C & D & E --> F[GMQTT 安装]
+    F --> G[ThingsPanel 后台]
+    G --> H[ThingsPanel 前台]
+    
+    H --> I[Nginx 配置]
+    I --> J[安装完成]
+    
+    K[可选组件 ]
+    K --> L[Modbus 协议插件]
+    K --> N[大屏]
+    
+    style A fill:#e8f0fe,stroke:#4a8af4,color:#1a73e8
+    style J fill:#e8f0fe,stroke:#4a8af4,color:#1a73e8
+    style K fill:#fef1f1,stroke:#d73a49,color:#cb2431
+    style L fill:#fef1f1,stroke:#d73a49,color:#cb2431
+    style N fill:#fef1f1,stroke:#d73a49,color:#cb2431
+
+```
 
 ## 系统环境
 

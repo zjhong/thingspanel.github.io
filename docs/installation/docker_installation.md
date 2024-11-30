@@ -3,6 +3,41 @@ sidebar_position: 2
 ---
 # Docker安装
 
+## 部署流程
+```mermaid
+flowchart LR
+    classDef default fill:#f0f4f8,stroke:#d0d7de,stroke-width:2px,color:#24292f,rx:8,ry:8
+    classDef primary fill:#e8f0fe,stroke:#4a8af4,stroke-width:2px,color:#1a73e8,rx:8,ry:8
+    classDef optional fill:#fef1f1,stroke:#d73a49,stroke-width:2px,color:#cb2431,rx:8,ry:8
+
+    A[环境准备] --> B[安装Docker]
+    A --> C[安装Docker Compose]
+    A --> D[安装Git]
+    
+    B & C & D --> E[拉取项目]
+    E --> F[运行项目]
+    F --> G[访问系统]
+    
+    H[系统端口]
+    H --> I[8080/前端服务]
+    H --> J[9999/后端API]
+    H --> K[1883/MQTT]
+    H --> L[8883/MQTTS]
+    H --> M[5432/PostgreSQL]
+    H --> N[6379/Redis]
+    
+    style A fill:#e8f0fe,stroke:#4a8af4,color:#1a73e8
+    style G fill:#e8f0fe,stroke:#4a8af4,color:#1a73e8
+    style H fill:#fef1f1,stroke:#d73a49,color:#cb2431
+    style I fill:#fef1f1,stroke:#d73a49,color:#cb2431
+    style J fill:#fef1f1,stroke:#d73a49,color:#cb2431
+    style K fill:#fef1f1,stroke:#d73a49,color:#cb2431
+    style L fill:#fef1f1,stroke:#d73a49,color:#cb2431
+    style M fill:#fef1f1,stroke:#d73a49,color:#cb2431
+    style N fill:#fef1f1,stroke:#d73a49,color:#cb2431
+
+```
+
 ## 环境准备
 
 :::tip
