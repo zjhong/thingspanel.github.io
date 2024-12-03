@@ -34,7 +34,7 @@ flowchart LR
 
 ```
 
-## 系统环境
+## 1. 系统环境安装
 
 启动ThingsPanel之前，请先确定已经安装好以下环境:
 
@@ -66,7 +66,7 @@ go env -w GO111MODULE=on;go env -w GOPROXY=https://goproxy.cn
 
 4. TimescaleDB 14(支持高版本，支持传统部署) [安装](https://docs.timescale.com/install/latest/installation-docker/)
 
-### (可参考)timescaledb数据库搭建
+### TimescaleDB数据库搭建
 
 1. 获取数据库镜像
 
@@ -97,7 +97,7 @@ docker run --name timescaledb -p 5432:5432 \
 timescale/timescaledb:latest-pg14
 ```
 
-## GMQTT安装启动
+## 2. GMQTT安装
 
 GMQTT是平台接入设备消息的服务，设备消息通过GMQTT进入到平台，平台通过GMQTT发送消息给设备。
 
@@ -171,7 +171,7 @@ $ docker build -t gmqtt .
 $ docker run -p 1883:1883 -p 8883:8883 -p 8082:8082 -p 8083:8083  -p 8084:8084  gmqtt
 ```
 
-## ThingsPanel-Backend-Community安装启动
+## 3. ThingsPanel-Backend-Community安装启动
 
 平台是前后端分离的架构，ThingsPanel-Backend-Community是平台的后端，给前端提供API服务（同时给协议插件提供API服务），需要连接GMQTT和数据库（注意修改./configs/conf.yml，与安装数据库时候设置的用户名密码保持一致）。
 
@@ -345,13 +345,13 @@ $ cd thingspanel-backend-community
 $ go run . 
 ```
 
-## ThingsPanel-Frontend-Community安装打包（）
+## 4. ThingsPanel-Frontend-Community安装打包
 
-### 直接下载最新dist压缩包
+### 直接下载最新Dist压缩包
 
 打开前端仓库https://github.com/ThingsPanel/thingspanel-frontend-community页面，进入release页面，下载标签为latest的dist压缩包
 
-### 安装node.js 20.11.0（如果要在服务器打包前端需要安装node.js）
+### 安装Node.js 20.11.0（如果要在服务器打包前端需要安装node.js）
 
 [安装node.js](https://nodejs.org/download/release/)
 
@@ -386,40 +386,9 @@ $ go run .
 ```bash
   pnpm build
 ```
+## 5. 可选：安装Modbus-protocol-plugin
 
-## visual-editor安装打包（可视化）(社区版不支持，可不安装)
-
-### 安装pnpm
-
-1. 在以上node.js安装好的前提下，执行命令安装pnpm
-
-```
-npm i -g pnpm
-```
-
-### 可视化源码打包
-
-1. 下载源码(未安装git，可直接下载仓库的zip包)
-
-```bash
-https://github.com/ThingsPanel/visual-editor.git
-```
-
-2. 安装依赖
-
-```bash
-npm install
-```
-
-3. 打包生成dist
-
-```bash
-pnpm run build
-```
-
-## modbus-protocol-plugin安装启动（可选-MODBUS协议插件）
-
-modbus-protocol-plugin是平台的协议插件，MODBUS协议的设备对接协议插件，协议插件将数据转发到GMQTT进入平台。
+Modbus-protocol-plugin是平台的协议插件，MODBUS协议的设备对接协议插件，协议插件将数据转发到GMQTT进入平台。
 
 1. 进入[modbus-protocol-plugin仓库](https://github.com/ThingsPanel/modbus-protocol-plugin)
 2. Star仓库
@@ -457,22 +426,57 @@ $ cd modbus-protocol-plugin
 $ go run . start
 ```
 
-## rule-engine安装启动（可选-规则引擎）
+## 6. 可选：Visual-editor可视化安装打包(社区版不支持)
+
+### 安装Pnpm
+
+1. 在以上node.js安装好的前提下，执行命令安装pnpm
+
+```
+npm i -g pnpm
+```
+
+### 可视化源码打包
+
+1. 下载源码(未安装git，可直接下载仓库的zip包)
+
+```bash
+https://github.com/ThingsPanel/visual-editor.git
+```
+
+2. 安装依赖
+
+```bash
+npm install
+```
+
+3. 打包生成dist
+
+```bash
+pnpm run build
+```
+
+
+
+## 7. 可选：安装Rule-engine规则引擎
 
 请参考https://github.com/ThingsPanel/rule-engine 的readme安装
 
-## 前端部署
 
-### 安装nginx
+
+## 8. 安装Nginx
 
 ```sh
 yum install nginx
 ```
 
-### nginx配置
+### Nginx配置
 
 安装完成后，进入/etc/nginx/conf.d目录下新建文件tp.conf，将下面内容复制进去,然后将前端**打包好的dist内的文件**复制到/usr/share/nginx/html，(推荐把/usr/share/nginx/html换成dist路径)；将打包好的可视化dist文件放到/usr/share/nginx/visual-editor/dist与一下配置一致；
+
 **注意如果访问有权限问题，修改nginx.conf配置**
+
+**注意修改成自己的配置**
 
 ```conf
 server {
@@ -542,7 +546,7 @@ server {
 
 ```
 
-### 重启nginx
+### 重启Nginx
 
 ```sh
 nginx -t
@@ -551,6 +555,14 @@ nginx -s reload
 
 :::info
 
+## 9. 完成安装
+
+- **登录**
+
+  - 打开浏览器，输入**服务器ip:8080**
+  - 系统管理员 super@super.cn / 123456
+  - 租户管理员 tenant@tenant.cn / 123456
+  
 安装手册若有没帮助到您的地方，请联系我们。`QQ群1：260150504（满） QQ群2:371794256`
 
 :::
