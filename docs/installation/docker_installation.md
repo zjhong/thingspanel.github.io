@@ -1,9 +1,10 @@
 ---
 sidebar_position: 2
 ---
-# Docker安装
+# Docker部署ThingsPanel
 
 ## 部署流程
+
 ```mermaid
 flowchart LR
     classDef default fill:#f0f4f8,stroke:#d0d7de,stroke-width:2px,color:#24292f,rx:8,ry:8
@@ -46,6 +47,8 @@ windows环境下请安装 `Docker Desktop`和 `git`。
 
 :::
 
+### 安装Docker
+
 - **安装docker（centos）**
 
   ```bash
@@ -54,14 +57,13 @@ windows环境下请安装 `Docker Desktop`和 `git`。
   systemctl start docker.service
   systemctl enable docker.service
   ```
+
 - **安装docker-compose**
 
-  
 :::tip
   如docker-compose的v2.9.0运行出错，可下载v2.10.0使用。
   如要使用docker-compose较新版本，请自行修改项目里的docker-compose.yml文件
 :::
-
 
   ```bash
   curl -L "https://github.com/docker/compose/releases/download/v2.9.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
@@ -81,6 +83,13 @@ windows环境下请安装 `Docker Desktop`和 `git`。
   dnf install git -y
   ```
 
+### 镜像加速方式安装
+
+[Debian系统安装 Docker 操作手册](https://docs.qq.com/doc/DZVZtdXBPdFJxV05C)  
+[CentOS系统安装 Docker 操作手册](https://docs.qq.com/doc/DZUlaZG50dG1RdHB0)  
+[Ubuntu系统安装 Docker 操作手册](https://docs.qq.com/doc/DZW13a1FzeGxiQk5J)  
+[AlmaLinux系统安装 Docker 操作手册](https://docs.qq.com/doc/DZWNWZU9LZUxwTWVs)  
+
 ## 开始安装
 
 - **拉取项目**
@@ -90,6 +99,7 @@ windows环境下请安装 `Docker Desktop`和 `git`。
   git clone https://github.com/ThingsPanel/thingspanel-docker.git
   cd thingspanel-docker
   ```
+
 - **运行项目**
 
   > 在 `thingspanel-docker`目录下(win需要打开 `cmd` 窗口)
@@ -103,6 +113,7 @@ windows环境下请安装 `Docker Desktop`和 `git`。
   # 停止服务
   docker-compose -f docker-compose.yml down
   ```
+
 - **登录**
 
   - 打开浏览器，输入**服务器ip:8080**
@@ -116,6 +127,7 @@ windows环境下请安装 `Docker Desktop`和 `git`。
   ```bash
   ./data
   ```
+
 - **docker数据卷名**
 
   ```bash
