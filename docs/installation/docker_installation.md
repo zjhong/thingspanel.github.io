@@ -1,7 +1,7 @@
 ---
 sidebar_position: 2
 ---
-# Docker部署ThingsPanel
+# Docker方式安装
 
 ## 部署流程
 

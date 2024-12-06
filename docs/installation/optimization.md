@@ -2,7 +2,7 @@
 sidebar_position: 7
 ---
 
-# ThingsPanel 性能优化指南
+# 优化指南
 
 ## 1. 系统性能优化
 

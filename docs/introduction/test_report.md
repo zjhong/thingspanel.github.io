@@ -2,7 +2,7 @@
 sidebar_position: 4
 ---
 
-# ThingsPanel高并发测试报告
+# 性能测试报告
 
 ## 核心结论
 
