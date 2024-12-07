@@ -50,12 +50,9 @@ jobs:
       - name: Deploy via SCP
         uses: cross-the-world/ssh-scp-ssh-pipelines@latest
         with:
-          #host: ${{ secrets.DOCS_HOST }}
-          #user: ${{ secrets.DOCS_USER }}
-          #pass: ${{ secrets.DOCS_PASS }}
-          host: 47.121.119.36
-          user: root
-          pass: FAYxZh$$72Ubk8*
+          host: ${{ secrets.DOCS_HOST }}
+          user: ${{ secrets.DOCS_USER }}
+          pass: ${{ secrets.DOCS_PASS }}
           scp: './build.tar.gz => /srv/thingspanel.io'
           last_ssh: |
             echo "Starting deployment..."
