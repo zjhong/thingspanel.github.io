@@ -51,7 +51,7 @@ jobs:
         uses: cross-the-world/ssh-scp-ssh-pipelines@latest
         with:
           host: ${{ secrets.DOCS_HOST }}
-          user: ${{ secrets.DOCS_USER }}
+          user: root
           pass: ${{ secrets.DOCS_PASS }}
           scp: './build.tar.gz => /srv/thingspanel.io'
           last_ssh: |
