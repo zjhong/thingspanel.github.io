@@ -3,41 +3,48 @@ sidebar_position: 4
 ---
 
 # ModBus接入
+
 ## 前置条件
 
-安装Modbus协议插件
+安装Modbus协议插件，并在系统管理员注册插件
 
 [ThingsPanel1.0.0安装Modbus协议插件教程](https://github.com/ThingsPanel/modbus-protocol-plugin)
 
 ## 接入步骤
-1.	创建子设备功能模板【可选】
-    * 创建设备物模型、Web和App图表
-2.	创建网关设备配置模板
-    * 需要选择使用Modbus_RTU或者Modbus_TCP
-3.	创建电表设备配置模板
-    * 引用子设备功能模板
-4.	创建网关设备
-    * 创建后获得网关设备端可配置的IP地址、端口、注册包
-5.	创建电表子设备
-    * 要配置数据解析
-6.	添加电表子设备到网关
-    * 建立网关和子设备的关联
-7.	配置设备端
-    * 创建设备物模型、Web和App图表
-8.	查看数据
-    * 在电表设备详情中查看设备数据
+
+### 在平台创建Modbus网关设备
+
+1. 创建网关设备配置模板
+   1. 创建配置模板  ![创建配置模板](modbus_image/image.png)
+   2. 在协议配置中，需要选择使用Modbus_RTU或者Modbus_TCP  ![协议配置](modbus_image/image-1.png)
+2. 创建设备，绑定刚创建的网关类型的配置模板
+   1. 进入`设备接入`->`设备管理`，点`添加设备`按钮创建网关设备  ![添加设备](modbus_image/image-2.png)
+   2. 填入注册包信息（注意和网关或DTU配置中使用的注册包一致并且需要关闭设备的心跳包） ![alt text](modbus_image/image-3.png)
+   3. 此时对设备上电，就可看到设备在线
+
+### 在平台创建Modbus网关设备的子设备
+
+1. 创建子设备配置模板
+   1. 创建配置模板![创建配置模板](modbus_image/image-4.png)
+   2. 在协议配置中，需要选择使用Modbus_RTU或者Modbus_TCP，会出现配置表单，根据提示，填写对应的配置信息  ![协议配置](modbus_image/image-5.png)
+2. 创建设备，绑定刚创建的子设备类型的配置模板
+   1. 进入`设备接入`->`设备管理`，点`添加设备`按钮创建子设备  ![alt text](modbus_image/image-6.png)
+   2. 设置心跳时间 ![心跳设置](modbus_image/image-9.png)
+3. 绑定子设备到网关
+   1. 进入`设备接入`->`设备管理`，选择子设备对应的网关设备，选择子设备页签，点击添加子设备按钮，选择要添加的子设备  ![绑定子设备](modbus_image/image-7.png)
+   2. 修改子设备地址（从机地址）  ![修改从机地址](modbus_image/image-8.png)
+   3. 查看子设备详情，如果配置表单填写正确，此时子设备就可以正常上报数据了
 
 ## 操作流程图
-
 
 ```mermaid
 
 graph TD
-    A[创建电表设备功能模板] --> B[创建网关设备配置模板]
-    A --> C[创建电表设备模配置模板]
+    A[创建子设备功能模板（可选）] --> B[创建网关设备配置模板]
+    A --> C[创建子设备模配置模板]
     B --> D[创建网关设备]
-    C --> E[创建电表子设备]
-    D --> F[添加电表子设备到网关]
+    C --> E[创建子设备]
+    D --> F[添加子设备到网关并设置从机地址]
     E --> F
     F --> G[配置设备端]
     G --> H[在平台查看数据]
@@ -45,10 +52,8 @@ graph TD
 
 ## 接入结果
 
-
 ![ThingsPanel 获得数据](image/modbus_device-detials.png)
 
 ## 参考实例
 
-[有人口红网关USR-DR154接智能电表接入ThingsPanel
-](http://thingspanel.cn/posts/54)
+[有人口红网关USR-DR154接智能电表接入ThingsPanel](http://thingspanel.cn/posts/54)
