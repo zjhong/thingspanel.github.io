@@ -1,0 +1,8 @@
+{
+    "label": "System Logs",
+    "position": 13,
+    "link": {
+        "type": "generated-index",
+        "description": "System Logs"
+    }
+}
